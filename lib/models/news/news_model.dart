@@ -10,6 +10,7 @@ class News {
  late  String? thumbnail;
  late String? publishedAt;
  late String? content;
+ Genre? genre;
 
   News({
     this.id,
@@ -23,6 +24,7 @@ class News {
     this.thumbnail,
     this.publishedAt,
     this.content,
+    this.genre
   });
 
   News.fromJson(Map<String, dynamic> json) {
@@ -37,6 +39,7 @@ class News {
     thumbnail = json['thumbnail'];
     publishedAt = json['published_at'];
     content = json['content'];
+    genre = json['genre'] != null ? new Genre.fromJson(json['genre']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -52,6 +55,30 @@ class News {
     data['thumbnail'] = this.thumbnail;
     data['published_at'] = this.publishedAt;
     data['content'] = this.content;
+    if (this.genre != null) {
+      data['genre'] = this.genre!.toJson();
+    }
+    return data;
+  }
+}
+class Genre {
+  late int? id;
+  late String? name;
+  late String? slug;
+
+  Genre({this.id, this.name, this.slug});
+
+  Genre.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['slug'] = this.slug;
     return data;
   }
 }

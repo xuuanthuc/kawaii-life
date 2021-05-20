@@ -6,10 +6,10 @@ class NavBarDesign extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(onPressed: (){}, icon: Icon(Icons.menu, color: primaryColor,)),
-        IconButton(onPressed: (){}, icon: Icon(Icons.menu, color: primaryColor,)),
-        IconButton(onPressed: (){}, icon: Icon(Icons.menu, color: primaryColor,)),
-        IconButton(onPressed: (){}, icon: Icon(Icons.menu, color: primaryColor,)),
+        IconButton(onPressed: (){}, icon: Icon(Icons.fiber_new_sharp, color: primaryColor,)),
+        IconButton(onPressed: (){}, icon: Icon(Icons.stars, color: primaryColor,)),
+        IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_rounded, color: primaryColor,)),
+        IconButton(onPressed: (){}, icon: Icon(Icons.account_circle_sharp, color: primaryColor,)),
       ],
     );
   }

@@ -3,6 +3,9 @@
 
 const getAnimeNews = 'animenews.json';
 const getMangaNews = 'manganews.json';
+const getCosplay = 'cosplay.json';
+const getFigure = 'figure.json';
+const getNomination = 'nominations.json';
 //Môi trường dev
 
 class NewsEnvironment{

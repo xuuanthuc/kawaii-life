@@ -11,6 +11,9 @@ import '/modules/home_news/news_repository.dart';
 
 final animeNewsApi = '$getAnimeNews';
 final mangaNewsApi = '$getMangaNews';
+final cosplayApi = '$getCosplay';
+final figureApi = '$getFigure';
+final nominationApi = '$getNomination';
 class NewsRepository implements INewsRepository{
   Request request = Request();
 
@@ -30,6 +33,36 @@ class NewsRepository implements INewsRepository{
     // TODO: implement getMoviePopular
     var res = await
     request.requestApi(method: MethodType.GET, url: mangaNewsApi);
+    // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
+    var converRes = (res as dynamic);
+    List<dynamic> data = json.decode(converRes);
+    print(data);
+    return data.map((job) => new News.fromJson(job)).toList();
+  }
+  Future<List<News>> getCosplay()async {
+    // TODO: implement getMoviePopular
+    var res = await
+    request.requestApi(method: MethodType.GET, url: cosplayApi);
+    // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
+    var converRes = (res as dynamic);
+    List<dynamic> data = json.decode(converRes);
+    print(data);
+    return data.map((job) => new News.fromJson(job)).toList();
+  }
+  Future<List<News>> getFigure()async {
+    // TODO: implement getMoviePopular
+    var res = await
+    request.requestApi(method: MethodType.GET, url: figureApi);
+    // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
+    var converRes = (res as dynamic);
+    List<dynamic> data = json.decode(converRes);
+    print(data);
+    return data.map((job) => new News.fromJson(job)).toList();
+  }
+  Future<List<News>> getNomination()async {
+    // TODO: implement getMoviePopular
+    var res = await
+    request.requestApi(method: MethodType.GET, url: nominationApi);
     // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
     var converRes = (res as dynamic);
     List<dynamic> data = json.decode(converRes);

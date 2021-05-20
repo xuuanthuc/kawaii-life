@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:wibu_life/modules/home_news/views/news_detail.dart';
 import '/modules/home_news/views/home_news.dart';
 
 import 'models/common/error_model.dart';
@@ -11,6 +12,7 @@ abstract class Routes {
   static const SPLASH = '/splash';
   static const HOME = '/home';
   static const ERROR = '/error';
+  static const NEWS_DETAIL = '/news-detail';
 }
 
 class AppPages {
@@ -27,6 +29,11 @@ class AppPages {
       name: Routes.HOME,
       page: () => HomeNews(),
       bindings: [NewsBinding()],
+    ),
+    GetPage(
+      name: Routes.NEWS_DETAIL,
+      page: () => NewsDetail(),
+      bindings: [],
     ),
   ];
 }

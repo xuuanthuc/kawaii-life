@@ -5,6 +5,11 @@ abstract class LocaleKeys {
   static const not_found = "Not found.";
   static const error = "Error";
   static const unknown_error = "Unknown_error";
+  static const ANIME_NEWS = "tin_tuc_anime";
+  static const MANGA_NEWS = "tin_tuc_manga";
+  static const COSPLAY = "cosplay";
+  static const FIGURE = "nhan_vat";
+  static const NOMINATION = "de_cu";
 
   //error description
   static const request_send_timeout = "request_send_timeout";
