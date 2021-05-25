@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
   void fetchSomething() async {
     //TODO Call API from server and do sth
     await new Future.delayed(const Duration(seconds: 2));
-    Get.toNamed(Routes.HOME);
+    Get.offAllNamed(Routes.HOME);
   }
 
   @override

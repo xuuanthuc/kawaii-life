@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:wibu_life/utils/common/screen_util.dart';
 
 import '/models/news/news_model.dart';
 import '../request.dart';
@@ -14,6 +15,8 @@ final mangaNewsApi = '$getMangaNews';
 final cosplayApi = '$getCosplay';
 final figureApi = '$getFigure';
 final nominationApi = '$getNomination';
+
+
 class NewsRepository implements INewsRepository{
   Request request = Request();
 
@@ -22,9 +25,10 @@ class NewsRepository implements INewsRepository{
     // TODO: implement getMoviePopular
     var res = await
     request.requestApi(method: MethodType.GET, url: animeNewsApi);
-    // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
+    // Dio().get('http://192.168.10.100:8080/api/v1/news?type=1');
     var converRes = (res as dynamic);
-    List<dynamic> data = json.decode(converRes);
+    List<dynamic> data = converRes;
+    // ignore: avoid_print
     print(data);
     return data.map((job) => new News.fromJson(job)).toList();
   }
@@ -35,17 +39,23 @@ class NewsRepository implements INewsRepository{
     request.requestApi(method: MethodType.GET, url: mangaNewsApi);
     // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
     var converRes = (res as dynamic);
-    List<dynamic> data = json.decode(converRes);
+    print(converRes) ;
+
+    List<dynamic> data = converRes;
     print(data);
+    print(data.map((job) => new News.fromJson(job)).toList().toString());
     return data.map((job) => new News.fromJson(job)).toList();
   }
+
+
+
   Future<List<News>> getCosplay()async {
     // TODO: implement getMoviePopular
     var res = await
     request.requestApi(method: MethodType.GET, url: cosplayApi);
     // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
     var converRes = (res as dynamic);
-    List<dynamic> data = json.decode(converRes);
+    List<dynamic> data = converRes;
     print(data);
     return data.map((job) => new News.fromJson(job)).toList();
   }
@@ -55,7 +65,7 @@ class NewsRepository implements INewsRepository{
     request.requestApi(method: MethodType.GET, url: figureApi);
     // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
     var converRes = (res as dynamic);
-    List<dynamic> data = json.decode(converRes);
+    List<dynamic> data = converRes;
     print(data);
     return data.map((job) => new News.fromJson(job)).toList();
   }
@@ -65,7 +75,7 @@ class NewsRepository implements INewsRepository{
     request.requestApi(method: MethodType.GET, url: nominationApi);
     // Dio().get('https://raw.githubusercontent.com/XuannThucc/bot_crawl_wibu_data/master/out/animenews.json');
     var converRes = (res as dynamic);
-    List<dynamic> data = json.decode(converRes);
+    List<dynamic> data = converRes;
     print(data);
     return data.map((job) => new News.fromJson(job)).toList();
   }

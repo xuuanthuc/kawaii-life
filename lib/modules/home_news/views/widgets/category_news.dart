@@ -1,64 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wibu_life/models/news/news_model.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/themes/app_theme.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
 import '/utils/common/screen_util.dart';
 
-class CategoriesNews extends StatelessWidget {
-  NewsController newsController = Get.find();
 
-  @override
-  Widget build(BuildContext context) {
+ Widget CategoriesNews() {
+   final NewsController newsController = Get.find();
     return SliverList(
-      delegate: SliverChildBuilderDelegate((context, index) {
-        return Padding(
-          padding: EdgeInsets.only(left: w(8)),
-          child: Container(
-            height: h(110),
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                CategoryTileDesign(
-                    image: 'assets/images/anime_news_category.jpg',
-                    title: LocaleKeys.ANIME_NEWS.tr,
-                    ontap: () {
-                      newsController.selectNewsCategories(LocaleKeys.ANIME_NEWS);
+    delegate: SliverChildBuilderDelegate((context, index) {
+      return Padding(
+        padding: EdgeInsets.only(left: w(8)),
+        child: Container(
+          height: h(110),
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            children: [
+              CategoryTileDesign(
+                  image: 'assets/images/anime_news_category.jpg',
+                  title: LocaleKeys.ANIME_NEWS.tr,
+                  ontap: () async {
+                    await newsController.selectNewsCategories(LocaleKeys.ANIME_NEWS);
+                  }),
+              CategoryTileDesign(
+                  image: 'assets/images/manga_news_category.jpg',
+                  title: LocaleKeys.MANGA_NEWS.tr,
+                  ontap: () async {
+                    await newsController.selectNewsCategories(LocaleKeys.MANGA_NEWS);
+                  }),
+              CategoryTileDesign(
+                  image: 'assets/images/cosplay_category.jpg',
+                  title: LocaleKeys.COSPLAY.tr,
+                  ontap: () async {
+                   await newsController.selectNewsCategories(LocaleKeys.COSPLAY);
 
-                    }),
-                CategoryTileDesign(
-                    image: 'assets/images/manga_news_category.jpg',
-                    title: LocaleKeys.MANGA_NEWS.tr,
-                    ontap: () {
-                      newsController.selectNewsCategories(LocaleKeys.MANGA_NEWS);
-                    }),
-                CategoryTileDesign(
-                    image: 'assets/images/cosplay_category.jpg',
-                    title: LocaleKeys.COSPLAY.tr,
-                    ontap: () {
-                      newsController.selectNewsCategories(LocaleKeys.COSPLAY);
-                    }),
-                CategoryTileDesign(
-                    image: 'assets/images/nomination_category.jpg',
-                    title: LocaleKeys.NOMINATION.tr,
-                    ontap: () {
-                      newsController.selectNewsCategories(LocaleKeys.NOMINATION);
-                    }),
-                CategoryTileDesign(
-                    image: 'assets/images/figure_category.jpg',
-                    title: LocaleKeys.FIGURE.tr,
-                    ontap: () {
-                      newsController.selectNewsCategories(LocaleKeys.FIGURE);
-                    }),
-              ],
-            ),
+
+                  }),
+              CategoryTileDesign(
+                  image: 'assets/images/nomination_category.jpg',
+                  title: LocaleKeys.NOMINATION.tr,
+                  ontap: ()async {
+                   await newsController.selectNewsCategories(LocaleKeys.NOMINATION);
+
+
+                  }),
+              CategoryTileDesign(
+                  image: 'assets/images/figure_category.jpg',
+                  title: LocaleKeys.FIGURE.tr,
+                  ontap: ()async  {
+                   await newsController.selectNewsCategories(LocaleKeys.FIGURE);
+
+                  }),
+            ],
           ),
-        );
-      }, childCount: 1),
-    );
-  }
-}
+        ),
+      );
+    }, childCount: 1),
+  );
+ }
+
 
 Widget CategoryTileDesign(
     {required String image,
