@@ -10,6 +10,7 @@ abstract class LocaleKeys {
   static const COSPLAY = "cosplay";
   static const FIGURE = "nhan_vat";
   static const NOMINATION = "de_cu";
+  static const tinlienquan = "tin_lien_quan";
 
   //error description
   static const request_send_timeout = "request_send_timeout";

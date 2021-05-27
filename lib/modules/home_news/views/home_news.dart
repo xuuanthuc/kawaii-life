@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:wibu_life/modules/common/widgets/effect_widget.dart';
+import 'package:wibu_life/modules/common/widgets/logo_text.dart';
 import 'package:wibu_life/modules/common/widgets/nav_bar.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/home_news/views/widgets/category_news.dart';
@@ -20,7 +21,6 @@ import 'widgets/anime_news_widget.dart';
 class HomeNews extends StatelessWidget {
   NewsController newsController = Get.find();
   final ScrollController _scrollController = ScrollController();
-  final RefreshController _refreshController = RefreshController();
 
   Future<void> scrollToTop() async {
     await _scrollController.animateTo(
@@ -55,8 +55,9 @@ class HomeNews extends StatelessWidget {
                     flexibleSpace: FlexibleSpaceBar(
                       background: Center(
                         child: Padding(
-                          padding: EdgeInsets.only(bottom: h(30)),
-                          child: Image.asset(icon.logo, height: 25,fit: BoxFit.cover,),
+                          padding: EdgeInsets.only(bottom: h(60)),
+                          child: logoText(),
+                          // Image.asset(icon.logo, height: 25,fit: BoxFit.cover,),
                         ),
                       ),
                     ),

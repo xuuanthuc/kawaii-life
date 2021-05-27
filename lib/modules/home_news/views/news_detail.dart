@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wibu_life/models/news/news_model.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/home_news/views/widgets/switch_tag_name_genre.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_theme.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
+import 'package:wibu_life/utils/constants/locale_key.dart';
 
 import '../../../app_papes.dart';
 
@@ -99,8 +100,7 @@ class NewsDetail extends StatelessWidget {
                               height: h(13),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsets.symmetric(horizontal: w(10)),
+                              padding: EdgeInsets.symmetric(horizontal: w(10)),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -118,37 +118,30 @@ class NewsDetail extends StatelessWidget {
                               child: Container(
                                 color: Colors.white,
                                 child: Html(
-                                  onImageTap: (String? url, RenderContext ctx, attributes, _){
-                                    showDialog(context: context,builder: (BuildContext context){
-                                      return AlertDialog(
-                                        backgroundColor: Color(0x00ffffff),
-                                        content: PhotoView(
-                                          tightMode: true,
-                                          enableRotation: true,
-                                          controller: _photoViewController,
-                                          scaleStateController: PhotoViewScaleStateController(),
-                                          filterQuality: FilterQuality.high,
-                                          imageProvider: NetworkImage('${url}'),
-                                          customSize: Size.fromWidth(w(400)),
-                                          backgroundDecoration: BoxDecoration(
-                                            color: Color(0x00ffffff),
-                                          ),
-                                        ),
-                                      );
-                                    });
+                                  onImageTap: (String? url, RenderContext ctx,
+                                      attributes, _) {
+                                    Get.dialog(
+                                      showDialogImage(url!),
+                                    );
                                   },
-                                  onLinkTap: (String? url, RenderContext ctx, attributes, _) async {
-                                    await canLaunch('${url}') ? await launch('${url}') : throw 'Could not launch $url';
+                                  onLinkTap: (String? url, RenderContext ctx,
+                                      attributes, _) async {
+                                    await canLaunch('${url}')
+                                        ? await launch('${url}')
+                                        : throw 'Could not launch $url';
                                   },
-
                                   data: """ ${newsContent} """,
                                 ),
                               ),
                             ),
                             Divider(),
-                            Text('Tin Liên Quan', style: robotoW600(s(20), primaryTextColor),),
-                            SizedBox(height: h(10),),
-
+                            Text(
+                              LocaleKeys.tinlienquan.tr,
+                              style: robotoW600(s(20), primaryTextColor),
+                            ),
+                            SizedBox(
+                              height: h(10),
+                            ),
                           ],
                         ),
                       ),
@@ -158,7 +151,6 @@ class NewsDetail extends StatelessWidget {
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate((context, index) {
-
                     int nextIndex = currentIndex + 1 + index;
                     return GestureDetector(
                       onTap: () {
@@ -177,15 +169,13 @@ class NewsDetail extends StatelessWidget {
                       child: Container(
                           height: h(100),
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: w(10), vertical: h(5)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: w(10), vertical: h(5)),
                             child: Row(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ClipRRect(
-                                    borderRadius:
-                                    BorderRadius.circular(
-                                        r(6)),
+                                    borderRadius: BorderRadius.circular(r(6)),
                                     child: Image.network(
                                         '${newsController.selectCategory[nextIndex].thumbnail}')),
                                 SizedBox(
@@ -194,18 +184,15 @@ class NewsDetail extends StatelessWidget {
                                 Flexible(
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         newsController
-                                            .selectCategory[nextIndex]
-                                            .title,
+                                            .selectCategory[nextIndex].title,
                                         maxLines: 3,
-                                        overflow:
-                                        TextOverflow.ellipsis,
+                                        overflow: TextOverflow.ellipsis,
                                         style: robotoW600(
                                           s(14),
                                           primaryTextColor,
@@ -214,11 +201,15 @@ class NewsDetail extends StatelessWidget {
                                       Spacer(),
                                       Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment
-                                            .spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          SwitchGenreTag(title: '${newsGenre.name}'),
-                                          Text('${newsController.selectCategory[nextIndex].views} Views', style: robotoW500(s(12), Colors.grey),),
+                                          SwitchGenreTag(
+                                              title: '${newsGenre.name}'),
+                                          Text(
+                                            '${newsController.selectCategory[nextIndex].views} Views',
+                                            style:
+                                                robotoW500(s(12), Colors.grey),
+                                          ),
                                         ],
                                       ),
                                     ],
@@ -228,11 +219,56 @@ class NewsDetail extends StatelessWidget {
                             ),
                           )),
                     );
-                  },childCount: 7),
+                  }, childCount: 7),
                 ),
               ],
             );
           }),
     );
+  }
+
+  Stack showDialogImage(String url) {
+    return Stack(
+                                      children: [
+                                        Positioned.fill(
+                                          child:
+                                          PhotoView(
+                                            tightMode: true,
+                                            enableRotation: true,
+                                            controller: _photoViewController,
+                                            scaleStateController:
+                                                PhotoViewScaleStateController(),
+                                            filterQuality: FilterQuality.high,
+                                            imageProvider:
+                                                NetworkImage('${url}'),
+                                            customSize:
+                                                Size.fromWidth(w(400)),
+                                            backgroundDecoration:
+                                                BoxDecoration(
+                                              color: Color(0x00ffffff),
+                                            ),
+                                          ),
+                                        ),
+                                        Card(
+                                          color: Colors.transparent,
+                                          elevation: 0,
+                                          shape: StadiumBorder(
+                                            side: BorderSide(
+                                              color: Colors.white,
+                                              width: w(3),
+                                            ),
+                                          ),
+                                          child: IconButton(
+                                            onPressed: () {
+                                              Get.back();
+                                            },
+                                            icon: Icon(
+                                              Icons.close,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
   }
 }
