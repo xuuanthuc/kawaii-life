@@ -41,7 +41,7 @@ class AppPages {
     GetPage(
       name: Routes.WALL_PAPER,
       page: () => WallPaperPage(),
-      bindings: [],
+      bindings: [WallPaperBinding()],
     ),
   ];
 }

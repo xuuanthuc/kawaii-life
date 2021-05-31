@@ -4,6 +4,7 @@ final Color white = Colors.white;
 final Color black = Colors.black;
 final Color redAccent = Colors.redAccent;
 final HexColor deepIndigo = HexColor("#240066");
+// final HexColor primaryColor = HexColor("#F05555");
 final HexColor primaryColor = HexColor("#F05555");
 final HexColor primaryTextColor = HexColor("#222222");
 final HexColor greyTextColor = HexColor("#6C6C6C");

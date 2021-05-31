@@ -22,14 +22,15 @@ class NavBarDesign extends StatelessWidget {
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = false;
                 navController.isActionHeart.value = false;
+                navController.isActionMenu.value = false;
               },
               icon: navController.isActionNews.value
                   ? SvgPicture.asset(
-                      icon.news_solid,
+                      icon.fire_solid,
                       color: primaryColor,
                     )
                   : SvgPicture.asset(
-                      icon.news_icon,
+                      icon.fire,
                       color: primaryColor,
                     )),
           IconButton(
@@ -39,16 +40,18 @@ class NavBarDesign extends StatelessWidget {
                 navController.isActionWallpaper.value = true;
                 navController.isActionBuy.value = false;
                 navController.isActionHeart.value = false;
+                navController.isActionMenu.value = false;
+
               },
               icon: navController.isActionWallpaper.value
                   ? SvgPicture.asset(
-                      icon.wallPaper_solid,
-                      color: primaryColor,
-                    )
+                icon.wallpapers_solid,
+                color: primaryColor,
+              )
                   : SvgPicture.asset(
-                      icon.wallPaper_icon,
-                      color: primaryColor,
-                    )),
+                icon.wallpapers_icon,
+                color: primaryColor,
+              )),
           IconButton(
               onPressed: () {
                 Get.offAllNamed(Routes.WALL_PAPER);
@@ -56,6 +59,8 @@ class NavBarDesign extends StatelessWidget {
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = true;
                 navController.isActionHeart.value = false;
+                navController.isActionMenu.value = false;
+
               },
               icon: navController.isActionBuy.value
                   ? SvgPicture.asset(
@@ -73,6 +78,8 @@ class NavBarDesign extends StatelessWidget {
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = false;
                 navController.isActionHeart.value = true;
+                navController.isActionMenu.value = false;
+
               },
               icon: navController.isActionHeart.value
                   ? SvgPicture.asset(
@@ -83,6 +90,24 @@ class NavBarDesign extends StatelessWidget {
                       icon.heart_icon,
                       color: primaryColor,
                     )),
+          IconButton(
+              onPressed: () {
+                Get.offAllNamed(Routes.WALL_PAPER);
+                navController.isActionNews.value = false;
+                navController.isActionWallpaper.value = false;
+                navController.isActionBuy.value = false;
+                navController.isActionHeart.value = false;
+                navController.isActionMenu.value = true;
+              },
+              icon: navController.isActionMenu.value
+                  ? SvgPicture.asset(
+                icon.menu_solid,
+                color: primaryColor,
+              )
+                  : SvgPicture.asset(
+                icon.menu_icon,
+                color: primaryColor,
+              )),
         ],
       ),
     );

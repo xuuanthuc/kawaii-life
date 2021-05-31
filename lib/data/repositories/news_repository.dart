@@ -1,9 +1,4 @@
 
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
-import 'package:wibu_life/utils/common/screen_util.dart';
-
 import '/models/news/news_model.dart';
 import '../request.dart';
 import '../url_api.dart';

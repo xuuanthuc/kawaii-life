@@ -5,5 +5,6 @@ class NavController extends GetxController{
   RxBool isActionWallpaper = false.obs;
   RxBool isActionBuy = false.obs;
   RxBool isActionHeart = false.obs;
+  RxBool isActionMenu = false.obs;
 
 }

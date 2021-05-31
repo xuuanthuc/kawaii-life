@@ -7,7 +7,6 @@ import '../news_repository.dart';
 class NewsController extends GetxController {
   // var movies = List<MoviePopularModel>();
   // var animeNews = News().obs;
-
   var selectCategory = <News>[].obs;
   final INewsRepository newsRepository = Get.find();
   RxString _title = LocaleKeys.ANIME_NEWS.obs;
@@ -70,7 +69,6 @@ class NewsController extends GetxController {
       selectCategory.value = await newsRepository.getNomination();
     }
     isLoading.value = false;
-
     update();
   }
 }
