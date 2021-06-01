@@ -30,5 +30,6 @@ class icon{
   static const logo = 'assets/images/logo.png';
   static const loading_gif = 'assets/images/loading.gif';
   static const loading_image_gif = 'assets/images/loading_image.gif';
+  static const downloading = 'assets/images/downloading.gif';
 
 }

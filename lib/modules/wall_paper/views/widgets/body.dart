@@ -39,7 +39,19 @@ class WidgetListType extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: w(6)),
                     child: GestureDetector(
                       onTap: (){
-
+                        var previewImage = '';
+                        if(title == LocaleKeys.ANIME){
+                          previewImage = wallPaperController.animeType[index].previewUrl;
+                        } else if(title == LocaleKeys.ANIME_GIRLS){
+                          previewImage = wallPaperController.animeGirlsType[index].previewUrl;
+                        }else if(title == LocaleKeys.ANIME_BOYS){
+                          previewImage = wallPaperController.animeBoysType[index].previewUrl;
+                        }else if(title == LocaleKeys.ANIME_AESTHETIC){
+                          previewImage = wallPaperController.animeAestheticType[index].previewUrl;
+                        }else if(title == LocaleKeys.ANIME_LOVE){
+                          previewImage = wallPaperController.animeLoveType[index].previewUrl;
+                        }
+                        Get.to(PreviewImageScreen(image: previewImage,));
                       },
                       child: Container(
                         width: w(110),

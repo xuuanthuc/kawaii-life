@@ -1,8 +1,17 @@
 
 
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_downloader/image_downloader.dart';
+import 'package:share/share.dart';
 import 'package:wibu_life/models/wallpaper/wallpaper_model.dart';
 import 'package:wibu_life/modules/wall_paper/wall_paper_repository.dart';
+import 'package:wibu_life/themes/app_colors.dart';
+import 'package:wibu_life/themes/app_icon.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
 class WallPaperController extends GetxController{
@@ -22,6 +31,13 @@ class WallPaperController extends GetxController{
   var animeAestheticType = <Wallpaper>[].obs;
   var animeLoveType = <Wallpaper>[].obs;
 
+  //Image Downloaded
+  RxString imageId = ''.obs;
+  RxString imageDownloadedName = ''.obs;
+  RxString imageDownloadedPath = ''.obs;
+  RxInt imageDownloadedSize = 0.obs;
+  RxString imageDownloadedMimeType = ''.obs;
+  RxBool isDownloading = false.obs;
   @override
   void onInit() async {
     // TODO: implement onInit
@@ -116,4 +132,105 @@ class WallPaperController extends GetxController{
     isLoading.value = false;
     update();
   }
+
+  //Delete file deleteFile(File('path'))
+  Future<void> deleteFile(File file) async {
+    try {
+      if (await file.exists()) {
+        await file.delete();
+      }
+    } catch (e) {
+      // Error in getting access to the file.
+    }
+  }
+  
+  Future<void> shareImage(String imageUrl) async {
+    try {
+      Get.dialog(
+          AlertDialog(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            shape: CircleBorder(),
+            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+          )
+      );
+      imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
+      if (imageId.value == null) {
+        return Get.snackbar(
+          'Cannot share Image',
+          '',
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 2),
+        );;
+      }
+      Get.back();
+      // Below is a method of obtaining saved image information.
+      imageDownloadedName.value = (await ImageDownloader.findName(imageId.value))!;
+      imageDownloadedPath.value = (await ImageDownloader.findPath(imageId.value))!;
+      imageDownloadedSize.value = (await ImageDownloader.findByteSize(imageId.value))!;
+      imageDownloadedMimeType.value = (await ImageDownloader.findMimeType(imageId.value))!;
+      await Share.shareFiles([imageDownloadedPath.value]);
+      var dir = Directory(imageDownloadedPath.value);
+      dir.deleteSync(recursive: true);
+      imageCache!.clear();
+    } on PlatformException catch (error) {
+      print(error);
+      Get.snackbar(
+        'Cannot share Image',
+        '',
+        snackPosition: SnackPosition.TOP,
+        duration: Duration(seconds: 2),
+      );
+    }
+
+  }
+
+  Future<void> downloadImage(String imageUrl) async {
+    try {
+      // Saved with this method.
+      Get.dialog(
+        AlertDialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          shape: CircleBorder(),
+          content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+        )
+      );
+      imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
+      if (imageId.value == null) {
+        return Get.snackbar(
+          'Cannot download Image',
+          '',
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 2),
+        );;
+      }
+      Get.back();
+      Get.snackbar(
+        'Image Downloaded !',
+        '${imageDownloadedPath.value}',
+        colorText: Color(0xffffffff),
+        snackPosition: SnackPosition.TOP,
+        duration: Duration(seconds: 2),
+      );
+      // Below is a method of obtaining saved image information.
+      imageDownloadedName.value = (await ImageDownloader.findName(imageId.value))!;
+      imageDownloadedPath.value = (await ImageDownloader.findPath(imageId.value))!;
+      imageDownloadedSize.value = (await ImageDownloader.findByteSize(imageId.value))!;
+      imageDownloadedMimeType.value = (await ImageDownloader.findMimeType(imageId.value))!;
+      print(imageDownloadedName.value);
+      print(imageDownloadedPath.value);
+      print(imageDownloadedSize.value);
+      print(imageDownloadedMimeType.value);
+    } on PlatformException catch (error) {
+      print(error);
+      Get.snackbar(
+        'Cannot download Image',
+        '',
+        snackPosition: SnackPosition.TOP,
+        duration: Duration(seconds: 2),
+      );
+    }
+  }
+
 }

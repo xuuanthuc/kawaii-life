@@ -1,8 +1,11 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_downloader/image_downloader.dart';
+import 'package:share/share.dart';
 import 'package:wibu_life/modules/wall_paper/controllers/wall_paper_controller.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_icon.dart';
@@ -24,6 +27,7 @@ class PreviewImageScreen extends StatelessWidget {
             image: DecorationImage(
                 image: NetworkImage(image), fit: BoxFit.fitHeight)),
         child: Stack(
+          alignment: AlignmentDirectional.bottomCenter,
           children: [
             Positioned(
               top: h(40),
@@ -37,21 +41,34 @@ class PreviewImageScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 60,
-              right: 60,
+              bottom: h(80),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButtomDesign(
                     onTap: () {},
-                    height: 70,
-                    width: 70,
+                    height: 60,
+                    width: 60,
                     padding: 15,
                     iconAsset: icon.edit_icon,
                   ),
+                  SizedBox(width: w(30),),
                   IconButtomDesign(
-                    onTap: () {},
-                    height: 70,
-                    width: 70,
+                    onTap: () async {
+                      wallPaperController.downloadImage(image);
+                    },
+                    height: 60,
+                    width: 60,
+                    padding: 15,
+                    iconAsset: icon.download,
+                  ),
+                  SizedBox(width: w(30),),
+                  IconButtomDesign(
+                    onTap: () {
+                      wallPaperController.shareImage(image);
+                    },
+                    height: 60,
+                    width: 60,
                     padding: 15,
                     iconAsset: icon.send_solid,
                   ),
