@@ -15,7 +15,7 @@ class EffectAnimationDesign extends StatelessWidget {
               borderRadius: BorderRadius.circular(r(8)),
               color: Colors.grey.shade100,
             ),
-            height: 250,
+            height: h(250),
             child: Shimmer(
               period: Duration(milliseconds: 600),
               child: Container(
@@ -30,5 +30,27 @@ class EffectAnimationDesign extends StatelessWidget {
           ),
         );
       }, childCount: 5),);
+  }
+}
+
+class EffectAnimationWallpaperDesign extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+          ),
+          height: h(210),
+          child: Shimmer(
+            period: Duration(milliseconds: 600),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+              ),
+            ),
+            direction: ShimmerDirection.ltr,
+            gradient: shimmerGradient,
+          ),
+        );
   }
 }

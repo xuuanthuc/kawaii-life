@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:wibu_life/modules/home_news/views/news_detail.dart';
 import 'package:wibu_life/modules/wall_paper/bindings/wall_paper_binding.dart';
+import 'package:wibu_life/modules/wall_paper/views/wall_paper_list_type.dart';
 import 'package:wibu_life/modules/wall_paper/views/wall_paper_page.dart';
 import '/modules/home_news/views/home_news.dart';
 
@@ -19,7 +20,7 @@ abstract class Routes {
 }
 
 class AppPages {
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.WALL_PAPER;
   static final unknownRoute =
   GetPage(name: Routes.ERROR, page: () => ErrorPage(error: ErrorModel()));
   static final routes = [

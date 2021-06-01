@@ -18,9 +18,17 @@ class icon{
   static const left = 'assets/icons/arrow_left.svg';
   static const fire = 'assets/icons/fire_icon.svg';
   static const fire_solid = 'assets/icons/fire_solid.svg';
+  static const arrow_back = 'assets/icons/arrow_back.svg';
+  static const download = 'assets/icons/download_icon.svg';
+  static const plan_send = 'assets/icons/plan_send.svg';
+  static const send_icon = 'assets/icons/send_icon.svg';
+  static const send_solid = 'assets/icons/send_solid.svg';
+  static const edit_icon = 'assets/icons/edit_icon.svg';
 
 
   //Images
   static const logo = 'assets/images/logo.png';
+  static const loading_gif = 'assets/images/loading.gif';
+  static const loading_image_gif = 'assets/images/loading_image.gif';
 
 }

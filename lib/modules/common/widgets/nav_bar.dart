@@ -16,6 +16,8 @@ class NavBarDesign extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onPressed: () {
                 Get.offAllNamed(Routes.HOME);
                 navController.isActionNews.value = true;
@@ -34,6 +36,8 @@ class NavBarDesign extends StatelessWidget {
                       color: primaryColor,
                     )),
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onPressed: () {
                 Get.offAllNamed(Routes.WALL_PAPER);
                 navController.isActionNews.value = false;
@@ -53,8 +57,10 @@ class NavBarDesign extends StatelessWidget {
                 color: primaryColor,
               )),
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onPressed: () {
-                Get.offAllNamed(Routes.WALL_PAPER);
+                // Get.offAllNamed(Routes.WALL_PAPER);
                 navController.isActionNews.value = false;
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = true;
@@ -72,8 +78,10 @@ class NavBarDesign extends StatelessWidget {
                       color: primaryColor,
                     )),
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onPressed: () {
-                Get.offAllNamed(Routes.WALL_PAPER);
+                // Get.offAllNamed(Routes.WALL_PAPER);
                 navController.isActionNews.value = false;
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = false;
@@ -91,8 +99,10 @@ class NavBarDesign extends StatelessWidget {
                       color: primaryColor,
                     )),
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               onPressed: () {
-                Get.offAllNamed(Routes.WALL_PAPER);
+                // Get.offAllNamed(Routes.WALL_PAPER);
                 navController.isActionNews.value = false;
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = false;
