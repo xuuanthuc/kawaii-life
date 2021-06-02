@@ -4,6 +4,10 @@ import 'package:wibu_life/utils/common/screen_util.dart';
 import 'app_colors.dart';
 
 final ThemeData appThemeData = ThemeData(
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: Colors.black.withOpacity(0.1)
+  ),
+  accentColor: Colors.white.withOpacity(0),
   fontFamily: GoogleFonts.sarabun.toString(),
   scaffoldBackgroundColor: HexColor("#E5E5E5"),
   textTheme: TextTheme(

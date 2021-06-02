@@ -36,7 +36,7 @@ class HomeNews extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Obx(() => CustomScrollView(
-                // physics: BouncingScrollPhysics(),
+              physics: ScrollPhysics(),
                 controller: _scrollController,
                 slivers: [
                   SliverAppBar(

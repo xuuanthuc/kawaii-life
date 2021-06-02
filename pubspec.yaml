@@ -48,6 +48,7 @@ dependencies:
   url_launcher: ^6.0.4
   image_downloader: ^0.30.0
   share: ^2.0.4
+  wallpaper_manager: ^1.0.10
 
 
 dev_dependencies:

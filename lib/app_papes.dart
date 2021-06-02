@@ -20,7 +20,7 @@ abstract class Routes {
 }
 
 class AppPages {
-  static const INITIAL = Routes.WALL_PAPER;
+  static const INITIAL = Routes.SPLASH;
   static final unknownRoute =
   GetPage(name: Routes.ERROR, page: () => ErrorPage(error: ErrorModel()));
   static final routes = [

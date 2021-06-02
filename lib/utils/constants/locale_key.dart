@@ -18,6 +18,10 @@ abstract class LocaleKeys {
   static const ANIME_BOYS = "anime_boys";
   static const ANIME_AESTHETIC = "anime_aesthetic";
   static const ANIME_LOVE = "anime_love";
+  static const HOME_SCREEN = "home_screen";
+  static const LOCK_SCREEN = "lock_screen";
+  static const BOTH_SCREEN = "both_screen";
+
 
 
   //error description

@@ -12,6 +12,7 @@ import 'package:wibu_life/models/wallpaper/wallpaper_model.dart';
 import 'package:wibu_life/modules/wall_paper/wall_paper_repository.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_icon.dart';
+import 'package:wibu_life/utils/common/wallpaper_manager.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
 class WallPaperController extends GetxController{
@@ -143,6 +144,53 @@ class WallPaperController extends GetxController{
       // Error in getting access to the file.
     }
   }
+
+
+  Future<void> setWallpaper(String imageUrl) async {
+    try {
+      Get.dialog(
+          AlertDialog(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            shape: CircleBorder(),
+            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+          )
+      );
+      imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
+      if (imageId.value == null) {
+        return Get.snackbar(
+          'Cannot share Image',
+          '',
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 2),
+        );;
+      }
+      // Below is a method of obtaining saved image information.
+      imageDownloadedName.value = (await ImageDownloader.findName(imageId.value))!;
+      imageDownloadedPath.value = (await ImageDownloader.findPath(imageId.value))!;
+      imageDownloadedSize.value = (await ImageDownloader.findByteSize(imageId.value))!;
+      imageDownloadedMimeType.value = (await ImageDownloader.findMimeType(imageId.value))!;
+
+      //set wallpaper code line
+      await WallpaperManager.setWallpaperFromFile(imageDownloadedPath.value, WallpaperManager.HOME_SCREEN);
+      //delete wallpaper code line
+      Get.back();
+
+      var dir = Directory(imageDownloadedPath.value);
+      dir.deleteSync(recursive: true);
+      imageCache!.clear();
+    } on PlatformException catch (error) {
+      print(error);
+      Get.snackbar(
+        'Cannot share Image',
+        '',
+        snackPosition: SnackPosition.TOP,
+        duration: Duration(seconds: 2),
+      );
+    }
+
+  }
+
   
   Future<void> shareImage(String imageUrl) async {
     try {

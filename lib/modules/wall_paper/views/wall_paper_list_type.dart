@@ -32,7 +32,7 @@ class WallpaperListType extends StatelessWidget {
             title: headerSelectCategoryWallpaper(),
           ),
           body: wallPaperController.isLoading.value
-              ? EffectAnimationWallpaperDesign()
+              ? EffectAnimationWallpaperListDesign()
               : Column(
                 children: [
                   Expanded(
@@ -48,8 +48,8 @@ class WallpaperListType extends StatelessWidget {
                           ),
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
-                              onTap: (){
-                                Get.to(PreviewImageScreen(image: wallPaperController.wallpaper[index].previewUrl,));
+                              onTap: () async {
+                                await Get.to(PreviewImageScreen(image: wallPaperController.wallpaper[index].previewUrl,));
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(r(8)),
