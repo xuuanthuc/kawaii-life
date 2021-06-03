@@ -53,7 +53,7 @@ class PreviewImageScreen extends StatelessWidget {
                     onTap: () {
                       Get.bottomSheet(
                         Padding(
-                          padding: EdgeInsets.only(bottom: h(70), left: w(8),right: w(8)),
+                          padding: EdgeInsets.only(bottom: h(40), left: w(8),right: w(8)),
                           child: ClipRect(
                             child: BackdropFilter(
                               filter: ImageFilter.blur(
@@ -61,15 +61,26 @@ class PreviewImageScreen extends StatelessWidget {
                               sigmaY: 5.0,
                             ),
                               child: Container(
-                                height: h(80),
+                                height: h(120),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(r(10)),
-                                  color: Colors.white.withOpacity(0.7),
+                                  color: Colors.white.withOpacity(0.9),
                                 ),
-                                child: TextButton(onPressed: ()async{
-                                  await wallPaperController.setWallpaper(image);
-                                  Get.back();
-                                }, child: Text(LocaleKeys.HOME_SCREEN.tr, style: robotoW600(s(20), primaryTextColor),),),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      // mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        buttomSetWallpaperDesign(imageUrl: image,icon: icon.home_screen, type: LocaleKeys.HOME_SCREEN),
+                                        buttomSetWallpaperDesign(imageUrl: image,icon: icon.lock_screen,  type: LocaleKeys.LOCK_SCREEN),
+                                        buttomSetWallpaperDesign(imageUrl: image, icon: icon.both_screen, type: LocaleKeys.BOTH_SCREEN),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -106,6 +117,24 @@ class PreviewImageScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buttomSetWallpaperDesign({required String imageUrl,required String type, required String icon}) {
+    return Flexible(
+      child: TextButton(
+        onPressed: ()async{
+        await wallPaperController.setWallpaper(imageUrl,type);
+        Get.back();
+        }, child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(icon, width: h(25), height: h(25),color: primaryTextColor,),
+            SizedBox(width: w(10),),
+            Text(type.tr, style: robotoW400(s(20), primaryTextColor),),
           ],
         ),
       ),

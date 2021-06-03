@@ -24,6 +24,9 @@ class icon{
   static const send_icon = 'assets/icons/send_icon.svg';
   static const send_solid = 'assets/icons/send_solid.svg';
   static const edit_icon = 'assets/icons/edit_icon.svg';
+  static const home_screen = 'assets/icons/home_screen_icon.svg';
+  static const lock_screen = 'assets/icons/lock_screen_icon.svg';
+  static const both_screen = 'assets/icons/both_screen_icon.svg';
 
 
   //Images

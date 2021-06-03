@@ -11,7 +11,7 @@ const Map<String, String> vi_VN = {
   'anime_boys': 'Anime Boys',
   'anime_aesthetic': 'Aesthetic',
   'anime_love': 'Love',
-  'home_screen': 'Đặt làm hình nền',
-  'lock_screen': 'Màn Hình Khóa',
-  'both_screen': 'Cả Hai',
+  'home_screen': 'Đặt hình nền',
+  'lock_screen': 'Đặt hình khóa',
+  'both_screen': 'Đặt cả hai',
 };

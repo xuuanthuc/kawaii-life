@@ -146,7 +146,7 @@ class WallPaperController extends GetxController{
   }
 
 
-  Future<void> setWallpaper(String imageUrl) async {
+  Future<void> setWallpaper(String imageUrl, String type) async {
     try {
       Get.dialog(
           AlertDialog(
@@ -159,7 +159,7 @@ class WallPaperController extends GetxController{
       imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
       if (imageId.value == null) {
         return Get.snackbar(
-          'Cannot share Image',
+          'Cannot set wallpaper Image',
           '',
           snackPosition: SnackPosition.TOP,
           duration: Duration(seconds: 2),
@@ -172,7 +172,26 @@ class WallPaperController extends GetxController{
       imageDownloadedMimeType.value = (await ImageDownloader.findMimeType(imageId.value))!;
 
       //set wallpaper code line
-      await WallpaperManager.setWallpaperFromFile(imageDownloadedPath.value, WallpaperManager.HOME_SCREEN);
+      try{
+        if(type == LocaleKeys.HOME_SCREEN){
+          print('Set home screnn');
+          await WallpaperManager.setWallpaperFromFile(imageDownloadedPath.value, WallpaperManager.HOME_SCREEN);
+        } else if(type == LocaleKeys.LOCK_SCREEN){
+          print('Set lock screnn');
+          await WallpaperManager.setWallpaperFromFile(imageDownloadedPath.value, WallpaperManager.LOCK_SCREEN);
+        } else if(type == LocaleKeys.BOTH_SCREEN){
+          print('Set Both screnn');
+          await WallpaperManager.setWallpaperFromFile(imageDownloadedPath.value, WallpaperManager.BOTH_SCREENS);
+        }
+      }catch(e){
+        Get.snackbar(
+          'Cannot set wallpaper Image',
+          '',
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 2),
+        );
+      }
+
       //delete wallpaper code line
       Get.back();
 
@@ -182,7 +201,7 @@ class WallPaperController extends GetxController{
     } on PlatformException catch (error) {
       print(error);
       Get.snackbar(
-        'Cannot share Image',
+        'Cannot set wallpaper Image',
         '',
         snackPosition: SnackPosition.TOP,
         duration: Duration(seconds: 2),
