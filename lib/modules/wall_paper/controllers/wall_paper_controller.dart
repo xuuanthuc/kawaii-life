@@ -26,6 +26,7 @@ class WallPaperController extends GetxController{
   RxBool animeAestheticSelect = false.obs;
   RxBool animeLoveSelect = false.obs;
 
+
   var animeType = <Wallpaper>[];
   var animeGirlsType = <Wallpaper>[];
   var animeBoysType = <Wallpaper>[].obs;

@@ -11,6 +11,7 @@ class NewsController extends GetxController {
   final INewsRepository newsRepository = Get.find();
   RxString _title = LocaleKeys.ANIME_NEWS.obs;
   String get title => _title.value;
+
   RxBool isLoading = false.obs;
   @override
   void onInit() {

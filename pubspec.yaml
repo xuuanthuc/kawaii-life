@@ -49,6 +49,7 @@ dependencies:
   image_downloader: ^0.30.0
   share: ^2.0.4
   wallpaper_manager: ^1.0.10
+  fluttertoast: ^8.0.7
 
 
 dev_dependencies:

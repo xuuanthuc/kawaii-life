@@ -9,6 +9,7 @@ import 'package:wibu_life/themes/app_icon.dart';
 class NavBarDesign extends StatelessWidget {
   final NavController navController = Get.put(NavController());
 
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -19,7 +20,7 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                Get.offAllNamed(Routes.HOME);
+                Get.toNamed(Routes.HOME);
                 navController.isActionNews.value = true;
                 navController.isActionWallpaper.value = false;
                 navController.isActionBuy.value = false;
@@ -39,7 +40,7 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                Get.offAllNamed(Routes.WALL_PAPER);
+                Get.toNamed(Routes.WALL_PAPER);
                 navController.isActionNews.value = false;
                 navController.isActionWallpaper.value = true;
                 navController.isActionBuy.value = false;
@@ -102,12 +103,12 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                // Get.offAllNamed(Routes.WALL_PAPER);
-                navController.isActionNews.value = false;
-                navController.isActionWallpaper.value = false;
-                navController.isActionBuy.value = false;
-                navController.isActionHeart.value = false;
-                navController.isActionMenu.value = true;
+                Get.toNamed(Routes.MENU);
+                // navController.isActionNews.value = false;
+                // navController.isActionWallpaper.value = false;
+                // navController.isActionBuy.value = false;
+                // navController.isActionHeart.value = false;
+                // navController.isActionMenu.value = true;
               },
               icon: navController.isActionMenu.value
                   ? SvgPicture.asset(

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/home_news/views/news_detail.dart';
+import 'package:wibu_life/modules/menu/menu_screen.dart';
 import 'package:wibu_life/modules/wall_paper/bindings/wall_paper_binding.dart';
 import 'package:wibu_life/modules/wall_paper/views/wall_paper_list_type.dart';
 import 'package:wibu_life/modules/wall_paper/views/wall_paper_page.dart';
@@ -17,6 +19,7 @@ abstract class Routes {
   static const ERROR = '/error';
   static const NEWS_DETAIL = '/news-detail';
   static const WALL_PAPER = '/wall-paper';
+  static const MENU = '/menu-screen';
 }
 
 class AppPages {
@@ -43,6 +46,11 @@ class AppPages {
       name: Routes.WALL_PAPER,
       page: () => WallPaperPage(),
       bindings: [WallPaperBinding()],
+    ),
+    GetPage(
+      name: Routes.MENU,
+      page: () => MenuScreen(),
+      bindings: [WallPaperBinding(), NewsBinding()],
     ),
   ];
 }

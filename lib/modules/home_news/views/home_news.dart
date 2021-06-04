@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:wibu_life/modules/common/widgets/effect_widget.dart';
@@ -20,6 +23,7 @@ import 'widgets/anime_news_widget.dart';
 
 class HomeNews extends StatelessWidget {
   NewsController newsController = Get.find();
+ DateTime? currentBackPressTime;
   final ScrollController _scrollController = ScrollController();
 
   Future<void> scrollToTop() async {
@@ -42,6 +46,7 @@ class HomeNews extends StatelessWidget {
                   SliverAppBar(
                     bottom: PreferredSize(
                       child: AppBar(
+                        automaticallyImplyLeading: false,
                         elevation: 0,
                         backgroundColor: Colors.white,
                         title: NavBarDesign(),
@@ -77,7 +82,22 @@ class HomeNews extends StatelessWidget {
       onWillPop: () async {
         if (_scrollController.position.atEdge) {
           if (_scrollController.position.pixels == 0) {
-            return true;
+            DateTime now = DateTime.now();
+            if (currentBackPressTime == null ||
+                now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
+              currentBackPressTime = now;
+              Fluttertoast.showToast(
+                  msg: "Nhấn BACK lần nữa để thoát!",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.grey.shade700,
+                  textColor: Colors.white,
+                  fontSize: 11.0
+              );
+              return Future.value(false);
+            }
+            exit(0);
           } else {
             scrollToTop();
             return false;
