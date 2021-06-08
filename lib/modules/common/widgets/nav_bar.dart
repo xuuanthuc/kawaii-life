@@ -21,11 +21,7 @@ class NavBarDesign extends StatelessWidget {
               highlightColor: Colors.transparent,
               onPressed: () {
                 Get.toNamed(Routes.HOME);
-                navController.isActionNews.value = true;
-                navController.isActionWallpaper.value = false;
-                navController.isActionBuy.value = false;
-                navController.isActionHeart.value = false;
-                navController.isActionMenu.value = false;
+                navController.selectNews();
               },
               icon: navController.isActionNews.value
                   ? SvgPicture.asset(
@@ -41,11 +37,7 @@ class NavBarDesign extends StatelessWidget {
               highlightColor: Colors.transparent,
               onPressed: () {
                 Get.toNamed(Routes.WALL_PAPER);
-                navController.isActionNews.value = false;
-                navController.isActionWallpaper.value = true;
-                navController.isActionBuy.value = false;
-                navController.isActionHeart.value = false;
-                navController.isActionMenu.value = false;
+                navController.selectWallpaper();
 
               },
               icon: navController.isActionWallpaper.value
@@ -61,12 +53,8 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                // Get.offAllNamed(Routes.WALL_PAPER);
-                navController.isActionNews.value = false;
-                navController.isActionWallpaper.value = false;
-                navController.isActionBuy.value = true;
-                navController.isActionHeart.value = false;
-                navController.isActionMenu.value = false;
+                navController.selectBuy();
+
 
               },
               icon: navController.isActionBuy.value
@@ -83,11 +71,8 @@ class NavBarDesign extends StatelessWidget {
               highlightColor: Colors.transparent,
               onPressed: () {
                 // Get.offAllNamed(Routes.WALL_PAPER);
-                navController.isActionNews.value = false;
-                navController.isActionWallpaper.value = false;
-                navController.isActionBuy.value = false;
-                navController.isActionHeart.value = true;
-                navController.isActionMenu.value = false;
+                navController.selectHeart();
+
 
               },
               icon: navController.isActionHeart.value

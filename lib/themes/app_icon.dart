@@ -31,6 +31,17 @@ class icon{
 
   //Images
   static const logo = 'assets/images/logo.png';
+  static const anime_news = 'assets/images/anime_news_category.jpg';
+  static const manga_news = 'assets/images/manga_news_category.jpg';
+  static const cosplay_news = 'assets/images/cosplay_category.jpg';
+  static const nomination_news = 'assets/images/nomination_category.jpg';
+  static const figure_news = 'assets/images/figure_category.jpg';
+  static const anime = 'assets/images/anime.jpeg';
+  static const anime_girls = 'assets/images/anime_girls.jpeg';
+  static const anime_boys = 'assets/images/anime_boys.jpeg';
+  static const anime_aesthetic = 'assets/images/anime_aesthetic.jpeg';
+  static const anime_love = 'assets/images/anime_love.png';
+
   static const loading_gif = 'assets/images/loading.gif';
   static const loading_image_gif = 'assets/images/loading_image.gif';
   static const downloading = 'assets/images/downloading.gif';

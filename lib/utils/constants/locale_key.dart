@@ -6,6 +6,7 @@ abstract class LocaleKeys {
   static const error = "Error";
   static const unknown_error = "Unknown_error";
   //news
+  static const NEWS = "tin_tuc";
   static const ANIME_NEWS = "tin_tuc_anime";
   static const MANGA_NEWS = "tin_tuc_manga";
   static const COSPLAY = "cosplay";
@@ -13,6 +14,7 @@ abstract class LocaleKeys {
   static const NOMINATION = "de_cu";
   static const tinlienquan = "tin_lien_quan";
   //wallpaper
+  static const WALLPAPER = "hinh_nen";
   static const ANIME = "anime";
   static const ANIME_GIRLS = "anime_girls";
   static const ANIME_BOYS = "anime_boys";

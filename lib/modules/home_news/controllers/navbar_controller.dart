@@ -7,4 +7,40 @@ class NavController extends GetxController{
   RxBool isActionHeart = false.obs;
   RxBool isActionMenu = false.obs;
 
+  void selectNews(){
+    isActionNews.value = true;
+    isActionWallpaper.value = false;
+    isActionBuy.value = false;
+    isActionHeart.value = false;
+    isActionMenu.value = false;
+  }
+  void selectWallpaper(){
+    isActionNews.value = false;
+    isActionWallpaper.value = true;
+    isActionBuy.value = false;
+    isActionHeart.value = false;
+    isActionMenu.value = false;
+  }
+  void selectBuy(){
+    isActionNews.value = false;
+    isActionWallpaper.value = false;
+    isActionBuy.value = true;
+    isActionHeart.value = false;
+    isActionMenu.value = false;
+  }
+  void selectHeart(){
+    isActionNews.value = false;
+    isActionWallpaper.value = false;
+    isActionBuy.value = false;
+    isActionHeart.value = true;
+    isActionMenu.value = false;
+  }
+  void selectMenu(){
+    isActionNews.value = false;
+    isActionWallpaper.value = false;
+    isActionBuy.value = false;
+    isActionHeart.value = false;
+    isActionMenu.value = true;
+  }
+
 }

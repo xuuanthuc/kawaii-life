@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wibu_life/models/news/news_model.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
+import 'package:wibu_life/themes/app_icon.dart';
 import 'package:wibu_life/themes/app_theme.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
@@ -21,19 +22,19 @@ import '/utils/common/screen_util.dart';
             scrollDirection: Axis.horizontal,
             children: [
               CategoryTileDesign(
-                  image: 'assets/images/anime_news_category.jpg',
+                  image: icon.anime_news,
                   title: LocaleKeys.ANIME_NEWS.tr,
                   ontap: () async {
                     await newsController.selectNewsCategories(LocaleKeys.ANIME_NEWS);
                   }),
               CategoryTileDesign(
-                  image: 'assets/images/manga_news_category.jpg',
+                  image: icon.manga_news,
                   title: LocaleKeys.MANGA_NEWS.tr,
                   ontap: () async {
                     await newsController.selectNewsCategories(LocaleKeys.MANGA_NEWS);
                   }),
               CategoryTileDesign(
-                  image: 'assets/images/cosplay_category.jpg',
+                  image: icon.cosplay_news,
                   title: LocaleKeys.COSPLAY.tr,
                   ontap: () async {
                    await newsController.selectNewsCategories(LocaleKeys.COSPLAY);
@@ -41,7 +42,7 @@ import '/utils/common/screen_util.dart';
 
                   }),
               CategoryTileDesign(
-                  image: 'assets/images/nomination_category.jpg',
+                  image: icon.nomination_news,
                   title: LocaleKeys.NOMINATION.tr,
                   ontap: ()async {
                    await newsController.selectNewsCategories(LocaleKeys.NOMINATION);
@@ -49,11 +50,10 @@ import '/utils/common/screen_util.dart';
 
                   }),
               CategoryTileDesign(
-                  image: 'assets/images/figure_category.jpg',
+                  image: icon.figure_news,
                   title: LocaleKeys.FIGURE.tr,
                   ontap: ()async  {
                    await newsController.selectNewsCategories(LocaleKeys.FIGURE);
-
                   }),
             ],
           ),

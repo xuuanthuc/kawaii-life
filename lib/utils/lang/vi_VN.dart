@@ -14,4 +14,6 @@ const Map<String, String> vi_VN = {
   'home_screen': 'Đặt hình nền',
   'lock_screen': 'Đặt hình khóa',
   'both_screen': 'Đặt cả hai',
+  'tin_tuc':'Tin Tức',
+  'hinh_nen':'Hình Nền',
 };

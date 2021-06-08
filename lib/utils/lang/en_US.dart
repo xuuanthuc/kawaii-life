@@ -1,5 +1,19 @@
 const Map<String, String> en_US = {
-  'home_string_1': 'xin chao',
-  "enter_city_name": 'nhập tên thành phố',
-  "example_city": "ví dụ: Chicago"
+  'hello': 'KawaiiLife',
+  "tin_tuc_anime": "Anime News",
+  "tin_tuc_manga": "Manga News",
+  'cosplay' : 'Cosplay',
+  'nhan_vat': 'Figure',
+  'de_cu': 'Nomination Anime',
+  'tin_lien_quan': 'Related News',
+  'anime': 'Anime',
+  'anime_girls': 'Anime Girls',
+  'anime_boys': 'Anime Boys',
+  'anime_aesthetic': 'Aesthetic',
+  'anime_love': 'Love',
+  'home_screen': 'Set as wallpaper',
+  'lock_screen': 'Set as lock screen',
+  'both_screen': 'Set both',
+  'tin_tuc':'News',
+  'hinh_nen':'Wallpaper',
 };
