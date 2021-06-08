@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wibu_life/app_papes.dart';
+import 'package:wibu_life/modules/common/controllers/dark_light_controller.dart';
 import 'package:wibu_life/modules/common/widgets/nav_bar.dart';
-import 'package:wibu_life/modules/home_news/controllers/navbar_controller.dart';
+import 'package:wibu_life/modules/common/controllers/navbar_controller.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/wall_paper/controllers/wall_paper_controller.dart';
 import 'package:wibu_life/modules/wall_paper/views/wall_paper_list_type.dart';
@@ -13,10 +14,19 @@ import 'package:wibu_life/themes/app_theme.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
+  @override
+  _MenuScreenState createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
   final WallPaperController wallPaperController = Get.find();
+
   final NewsController newsController = Get.find();
+
   final NavController navController = Get.find();
+
+  final DarkLightController darkLightController = Get.put(DarkLightController());
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +62,11 @@ class MenuScreen extends StatelessWidget {
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_BOYS, image: icon.anime_boys),
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_AESTHETIC, image: icon.anime_aesthetic),
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_LOVE, image: icon.anime_love),
+              Divider(),
+              ToggleButtons(children: [
+                Text('Light'),
+                Text('Dark'),
+              ], isSelected: darkLightController.isSelect.value)
             ],
           ),
         ),

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Logger.info('start');
     return GetMaterialApp(
-      theme: appThemeData,
+      theme: lightThemeData,
       debugShowCheckedModeBanner: false,
       enableLog: true,
       unknownRoute: AppPages.unknownRoute,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wibu_life/app_papes.dart';
-import 'package:wibu_life/modules/home_news/controllers/navbar_controller.dart';
+import 'package:wibu_life/modules/common/controllers/navbar_controller.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_icon.dart';
 

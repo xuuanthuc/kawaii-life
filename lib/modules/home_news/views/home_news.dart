@@ -38,6 +38,7 @@ class HomeNews extends StatelessWidget {
     return WillPopScope(
       child: SafeArea(
         child: Container(
+          //TODO:change color
           color: Colors.white,
           child: Obx(() => CustomScrollView(
               physics: ScrollPhysics(),
@@ -69,6 +70,7 @@ class HomeNews extends StatelessWidget {
                     snap: true,
                     elevation: 0,
                     expandedHeight: h(130),
+                    //TODO:change color
                     backgroundColor: Colors.white,
                   ),
                   CategoriesNews(),

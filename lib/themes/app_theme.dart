@@ -3,11 +3,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
 import 'app_colors.dart';
 
-final ThemeData appThemeData = ThemeData(
+final ThemeData lightThemeData = ThemeData(
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: Colors.black.withOpacity(0.1)
   ),
   accentColor: Colors.white.withOpacity(0),
+  primaryColor: Colors.white,
+  fontFamily: GoogleFonts.sarabun.toString(),
+  backgroundColor: Colors.white,
+  scaffoldBackgroundColor: Colors.white,
+  textTheme: TextTheme(
+    headline6: GoogleFonts.sarabun(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+);
+
+
+final ThemeData darkThemeData = ThemeData(
+  bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: Colors.black.withOpacity(1)
+  ),
+  accentColor: Colors.white.withOpacity(1),
+  primaryColor: Colors.blue,
   fontFamily: GoogleFonts.sarabun.toString(),
   scaffoldBackgroundColor: HexColor("#E5E5E5"),
   textTheme: TextTheme(

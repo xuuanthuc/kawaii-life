@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wibu_life/modules/common/controllers/dark_light_controller.dart';
 import 'package:wibu_life/modules/common/widgets/logo_text.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
@@ -13,7 +14,7 @@ class SplashPage extends StatefulWidget {
   // SplashPage() {
   //   fetchSomething();
   // }
-
+final DarkLightController darkLightController = Get.put(DarkLightController());
   @override
   _SplashPageState createState() => _SplashPageState();
 }
