@@ -19,30 +19,30 @@ Widget headerSelectCategoryWallpaper() {
         typeWallpaperWidget(
           wallPaperController,
           title: LocaleKeys.ANIME,
-          color: wallPaperController.animeSelect.value? primaryColor : Colors.grey,
+          color: wallPaperController.animeSelect.value? Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor : Colors.grey,
         ),
         typeWallpaperWidget(
           wallPaperController,
           title: LocaleKeys.ANIME_GIRLS,
-          color: wallPaperController.animeGirlSelect.value? primaryColor : Colors.grey,
+          color: wallPaperController.animeGirlSelect.value?  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor : Colors.grey,
 
         ),
         typeWallpaperWidget(
           wallPaperController,
           title: LocaleKeys.ANIME_BOYS,
-          color: wallPaperController.animeBoySelect.value? primaryColor : Colors.grey,
+          color: wallPaperController.animeBoySelect.value?  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor : Colors.grey,
 
         ),
         typeWallpaperWidget(
           wallPaperController,
           title: LocaleKeys.ANIME_AESTHETIC,
-          color: wallPaperController.animeAestheticSelect.value? primaryColor : Colors.grey,
+          color: wallPaperController.animeAestheticSelect.value?  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor : Colors.grey,
 
         ),
         typeWallpaperWidget(
           wallPaperController,
           title: LocaleKeys.ANIME_LOVE,
-          color: wallPaperController.animeLoveSelect.value? primaryColor : Colors.grey,
+          color: wallPaperController.animeLoveSelect.value?  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor : Colors.grey,
 
         ),
       ],
@@ -60,7 +60,7 @@ Widget typeWallpaperWidget(
       wallPaperController.selectTypeWallpaper(title);
     },
     child: Container(
-      color: Colors.transparent,
+      color: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
       child: Padding(
         padding: EdgeInsets.only(right: w(30)),
         child: Center(

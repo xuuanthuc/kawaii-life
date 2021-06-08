@@ -34,7 +34,7 @@ class NewsDetail extends StatelessWidget {
     DateTime dateFormat = new DateFormat("yyyy-MM-dd hh:mm:ss").parse(newsDate);
     String datePublics = DateFormat("dd/MM/yyyy").format(dateFormat);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Get.isDarkMode? darkModeBackgroundCard :  lightModeBackgroundColor,
       body: GetBuilder<NewsController>(
           init: newsController,
           builder: (index) {
@@ -66,12 +66,12 @@ class NewsDetail extends StatelessWidget {
 
                   elevation: 0,
                   expandedHeight: h(230),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Get.isDarkMode? darkModeBackgroundCard :  lightModeBackgroundColor,
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) => Container(
-                      color: Colors.white,
+                      color: Get.isDarkMode? darkModeBackgroundCard :  lightModeBackgroundColor,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: w(10)),
                         child: Column(
@@ -83,7 +83,7 @@ class NewsDetail extends StatelessWidget {
                                 Container(
                                   width: w(4),
                                   height: h(40),
-                                  color: primaryColor,
+                                  color:Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor,
                                 ),
                                 SizedBox(
                                   width: w(5),
@@ -92,7 +92,7 @@ class NewsDetail extends StatelessWidget {
                                     child: Text(
                                   newsTitle,
                                   maxLines: 3,
-                                  style: robotoW700(s(18), primaryTextColor),
+                                  style: robotoW700(s(18),Get.isDarkMode? darkModeTextColorWhite :  lightModeTextColorBlack),
                                 )),
                               ],
                             ),
@@ -116,7 +116,7 @@ class NewsDetail extends StatelessWidget {
                             ),
                             Center(
                               child: Container(
-                                color: Colors.white,
+                                color: Get.isDarkMode? darkModeBackgroundCard : lightModeBackgroundColor,
                                 child: Html(
                                   onImageTap: (String? url, RenderContext ctx,
                                       attributes, _) {
@@ -137,7 +137,7 @@ class NewsDetail extends StatelessWidget {
                             Divider(),
                             Text(
                               LocaleKeys.tinlienquan.tr,
-                              style: robotoW600(s(20), primaryTextColor),
+                              style: robotoW600(s(20),Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack),
                             ),
                             SizedBox(
                               height: h(10),
@@ -195,7 +195,7 @@ class NewsDetail extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                         style: robotoW600(
                                           s(14),
-                                          primaryTextColor,
+                                          Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack,
                                         ),
                                       ),
                                       Spacer(),

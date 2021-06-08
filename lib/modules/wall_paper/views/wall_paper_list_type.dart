@@ -15,16 +15,16 @@ class WallpaperListType extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<WallPaperController>(
       builder: (index) => Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
             leading: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               icon: Icon(
                 Icons.keyboard_arrow_left,
-                color: primaryColor,
+                color:Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor,
                 size: 30,
               ),
               onPressed: () => Get.back(),

@@ -39,7 +39,7 @@ class HomeNews extends StatelessWidget {
       child: SafeArea(
         child: Container(
           //TODO:change color
-          color: Colors.white,
+          color: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
           child: Obx(() => CustomScrollView(
               physics: ScrollPhysics(),
                 controller: _scrollController,
@@ -49,7 +49,7 @@ class HomeNews extends StatelessWidget {
                       child: AppBar(
                         automaticallyImplyLeading: false,
                         elevation: 0,
-                        backgroundColor: Colors.white,
+                        backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
                         title: NavBarDesign(),
                       ),
                       preferredSize: Size.fromHeight(h(65)),
@@ -71,7 +71,7 @@ class HomeNews extends StatelessWidget {
                     elevation: 0,
                     expandedHeight: h(130),
                     //TODO:change color
-                    backgroundColor: Colors.white,
+                    backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
                   ),
                   CategoriesNews(),
                   newsController.isLoading.value

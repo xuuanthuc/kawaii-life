@@ -27,7 +27,7 @@ class PreviewImageScreen extends StatelessWidget {
       init: wallPaperController,
       builder: (index) => Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color:Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
                 image: DecorationImage(
                 image: NetworkImage(image), fit: BoxFit.fitHeight)),
         child: Stack(
@@ -132,9 +132,9 @@ class PreviewImageScreen extends StatelessWidget {
         }, child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(icon, width: h(25), height: h(25),color: primaryTextColor,),
+            SvgPicture.asset(icon, width: h(25), height: h(25),color: lightModeTextColorBlack,),
             SizedBox(width: w(10),),
-            Text(type.tr, style: robotoW400(s(20), primaryTextColor),),
+            Text(type.tr, style: robotoW400(s(20), lightModeTextColorBlack),),
           ],
         ),
       ),

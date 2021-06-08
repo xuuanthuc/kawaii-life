@@ -31,8 +31,8 @@ final ScrollController _scrollController = ScrollController();
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Center(child: SvgPicture.asset(icon.left,color: primaryColorShade100,)),
-                  Center(child: SvgPicture.asset(icon.right,color: primaryColorShade100,)),
+                  Center(child: SvgPicture.asset(icon.left,color: Get.isDarkMode? darkModePrimaryColorShade100: lightModePrimaryColorShade100,)),
+                  Center(child: SvgPicture.asset(icon.right,color:  Get.isDarkMode? darkModePrimaryColorShade100:lightModePrimaryColorShade100,)),
                 ],
               ),
             ),
@@ -72,7 +72,7 @@ final ScrollController _scrollController = ScrollController();
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.shade100,
+                        color: Get.isDarkMode? Colors.transparent : Colors.grey.shade100,
                         blurRadius: 10.0,
                       ),
                     ],
@@ -94,48 +94,61 @@ final ScrollController _scrollController = ScrollController();
                               placeholder: 'assets/images/loading.gif',
                               image: '${newsController.selectCategory[index]
                                   .thumbnail}'),),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: w(12), vertical: h(10)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: w(2),
-                                    height: h(20),
-                                    color: primaryColor,
-                                  ),
-                                  SizedBox(width: w(5),),
-                                  Flexible(child: Text(
-                                    '${newsController.selectCategory[index]
-                                        .title}', maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: robotoW600(
-                                        s(15), primaryTextColor),)),
-                                ],
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Get.isDarkMode? darkModeBackgroundCard : lightModeBackgroundColor,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(
+                                r(4),
                               ),
-                              SizedBox(height: h(8),),
-                              Text('${newsController.selectCategory[index]
-                                  .description}', maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                style: robotoW400(s(13), greyTextColor),),
-                              SizedBox(height: h(5),),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment
-                                    .spaceBetween,
-                                children: [
-                                  SwitchCagetoryTag(title: '${newsController.selectCategory[index].genre!.name}',),
-                                  const Spacer(),
-                                  Text('${datePublics}',
-                                    style: robotoW500(s(11), Colors.grey),),
-                                  SizedBox(width: w(5),),
-                                  SvgPicture.asset(icon.time_icon, color: Colors.grey,width: s(15), height: s(15),)
-                                ],
+                              bottomRight: Radius.circular(
+                                r(4),
                               ),
-                            ],
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: w(12), vertical: h(10)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: w(2),
+                                      height: h(20),
+                                      color: Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor,
+                                    ),
+                                    SizedBox(width: w(5),),
+                                    Flexible(child: Text(
+                                      '${newsController.selectCategory[index]
+                                          .title}', maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: robotoW600(
+                                          s(15), Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack),)),
+                                  ],
+                                ),
+                                SizedBox(height: h(8),),
+                                Text('${newsController.selectCategory[index]
+                                    .description}', maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: robotoW400(s(13),Get.isDarkMode? darkModeTextColorGrey :  lightModeTextColorGrey),),
+                                SizedBox(height: h(5),),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment
+                                      .spaceBetween,
+                                  children: [
+                                    SwitchCagetoryTag(title: '${newsController.selectCategory[index].genre!.name}',),
+                                    const Spacer(),
+                                    Text('${datePublics}',
+                                      style: robotoW500(s(11), Colors.grey),),
+                                    SizedBox(width: w(5),),
+                                    SvgPicture.asset(icon.time_icon, color: Get.isDarkMode? darkModeTextColorGrey :  lightModeTextColorGrey,width: s(15), height: s(15),)
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

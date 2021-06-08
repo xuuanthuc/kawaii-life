@@ -26,11 +26,11 @@ class NavBarDesign extends StatelessWidget {
               icon: navController.isActionNews.value
                   ? SvgPicture.asset(
                       icon.fire_solid,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor: lightModePrimaryColor,
                     )
                   : SvgPicture.asset(
                       icon.fire,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )),
           IconButton(
               splashColor: Colors.transparent,
@@ -43,11 +43,11 @@ class NavBarDesign extends StatelessWidget {
               icon: navController.isActionWallpaper.value
                   ? SvgPicture.asset(
                 icon.wallpapers_solid,
-                color: primaryColor,
+                color: Get.isDarkMode? darkModePrimaryColor: lightModePrimaryColor,
               )
                   : SvgPicture.asset(
                 icon.wallpapers_icon,
-                color: primaryColor,
+                color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
               )),
           IconButton(
               splashColor: Colors.transparent,
@@ -60,11 +60,11 @@ class NavBarDesign extends StatelessWidget {
               icon: navController.isActionBuy.value
                   ? SvgPicture.asset(
                       icon.buy_solid,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )
                   : SvgPicture.asset(
                       icon.buy_icon,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )),
           IconButton(
               splashColor: Colors.transparent,
@@ -78,11 +78,11 @@ class NavBarDesign extends StatelessWidget {
               icon: navController.isActionHeart.value
                   ? SvgPicture.asset(
                       icon.heart_solid,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )
                   : SvgPicture.asset(
                       icon.heart_icon,
-                      color: primaryColor,
+                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )),
           IconButton(
               splashColor: Colors.transparent,
@@ -98,11 +98,11 @@ class NavBarDesign extends StatelessWidget {
               icon: navController.isActionMenu.value
                   ? SvgPicture.asset(
                 icon.menu_solid,
-                color: primaryColor,
+                color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
               )
                   : SvgPicture.asset(
                 icon.menu_icon,
-                color: primaryColor,
+                color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
               )),
         ],
       ),

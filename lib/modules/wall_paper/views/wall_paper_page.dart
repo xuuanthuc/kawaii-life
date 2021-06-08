@@ -22,12 +22,12 @@ class WallPaperPage extends StatelessWidget {
     return WillPopScope(
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
           appBar: PreferredSize(
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
+              backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
               title: NavBarDesign(),
             ),
             preferredSize: Size.fromHeight(h(65)),
@@ -118,14 +118,14 @@ Widget WallpaperTitle({required String title, required VoidCallback onPress}) {
         children: [
           Text(
             title.tr,
-            style: robotoW700(s(20), primaryTextColor),
+            style: robotoW700(s(20),Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack),
           ),
           Spacer(),
           IconButton(
             onPressed: onPress,
             icon: Icon(
               Icons.double_arrow_rounded,
-              color: primaryColor,
+              color:Get.isDarkMode? darkModePrimaryColor :  lightModePrimaryColor,
             ),
           )
         ],

@@ -5,10 +5,21 @@ final Color black = Colors.black;
 final Color redAccent = Colors.redAccent;
 final HexColor deepIndigo = HexColor("#240066");
 // final HexColor primaryColor = HexColor("#F05555");
-final HexColor primaryColor = HexColor("#F05555");
-final HexColor primaryTextColor = HexColor("#222222");
-final HexColor greyTextColor = HexColor("#6C6C6C");
-final HexColor primaryColorShade100 = HexColor("#FFFFCDD2");
+//TODO: Light mode
+final HexColor lightModePrimaryColor = HexColor("#F05555");
+final HexColor lightModeTextColorBlack = HexColor("#222222");
+final HexColor lightModeTextColorGrey = HexColor("#6C6C6C");
+final HexColor lightModePrimaryColorShade100 = HexColor("#FFFFCDD2");
+final HexColor lightModeBackgroundColor = HexColor("#ffffff");
+//TODO: Dark mode
+final HexColor darkModeBackgroundColor = HexColor("#18191a");
+final HexColor darkModeBackgroundCard = HexColor("#242526");
+final HexColor darkModePrimaryColor = HexColor("#FFFFFFFF");
+final HexColor darkModeTextColorWhite = HexColor("#FFFFFFFF");
+final HexColor darkModeTextColorGrey = HexColor("#b0b3b8");
+final HexColor darkModePrimaryColorShade100 = HexColor("#b0b3b8");
+
+
 
 
 class HexColor extends Color {

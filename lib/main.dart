@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wibu_life/themes/app_theme.dart';
 
 import 'app_papes.dart';
 import 'themes/app_theme.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Logger.info('start');
     return GetMaterialApp(
-      theme: lightThemeData,
+      // theme: lightThemeData,
+      // darkTheme: darkThemeData,
       debugShowCheckedModeBanner: false,
       enableLog: true,
       unknownRoute: AppPages.unknownRoute,

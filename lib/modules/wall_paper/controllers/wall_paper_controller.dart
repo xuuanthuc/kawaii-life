@@ -154,7 +154,7 @@ class WallPaperController extends GetxController{
             backgroundColor: Colors.transparent,
             elevation: 0,
             shape: CircleBorder(),
-            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(lightModePrimaryColor),),),
           )
       );
       imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
@@ -219,7 +219,7 @@ class WallPaperController extends GetxController{
             backgroundColor: Colors.transparent,
             elevation: 0,
             shape: CircleBorder(),
-            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+            content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(lightModePrimaryColor),),),
           )
       );
       imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;
@@ -261,7 +261,7 @@ class WallPaperController extends GetxController{
           backgroundColor: Colors.transparent,
           elevation: 0,
           shape: CircleBorder(),
-          content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(primaryColor),),),
+          content: Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(lightModePrimaryColor),),),
         )
       );
       imageId.value = (await ImageDownloader.downloadImage(imageUrl, destination: AndroidDestinationType.directoryPictures))!;

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class DarkLightController extends GetxController{
   RxBool isDarkMode = false.obs;
-  RxBool isLightMode = false.obs;
+  RxBool isLightMode = true.obs;
   List<RxBool> isSelect = [true.obs, false.obs];
   @override
   void onInit() {

@@ -32,7 +32,7 @@ Widget SwitchCagetoryTag({required String title}) {
     default:
       {
         return Text(title,
-          style: robotoW500(s(11), primaryColor),);
+          style: robotoW500(s(11), lightModePrimaryColor),);
       }
   }
 }

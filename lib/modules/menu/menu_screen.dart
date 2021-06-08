@@ -14,12 +14,8 @@ import 'package:wibu_life/themes/app_theme.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
-class MenuScreen extends StatefulWidget {
-  @override
-  _MenuScreenState createState() => _MenuScreenState();
-}
+class MenuScreen extends StatelessWidget {
 
-class _MenuScreenState extends State<MenuScreen> {
   final WallPaperController wallPaperController = Get.find();
 
   final NewsController newsController = Get.find();
@@ -32,7 +28,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor:  Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
         appBar: AppBar(
           elevation: 0,
           leading: IconButton(
@@ -40,9 +36,9 @@ class _MenuScreenState extends State<MenuScreen> {
               Get.back();
             },
             icon: Icon(Icons.arrow_back),
-            color: primaryColor,
+            color:  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor:  Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
         ),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: w(30)),
@@ -63,10 +59,12 @@ class _MenuScreenState extends State<MenuScreen> {
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_AESTHETIC, image: icon.anime_aesthetic),
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_LOVE, image: icon.anime_love),
               Divider(),
-              ToggleButtons(children: [
+              ElevatedButton(child:
                 Text('Light'),
-                Text('Dark'),
-              ], isSelected: darkLightController.isSelect.value)
+                onPressed: () {
+                Get.isDarkMode? Get.changeTheme(lightMode) : Get.changeTheme(darkMode);
+                },
+              )
             ],
           ),
         ),
@@ -96,7 +94,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         width: h(30),
                         child: ClipRRect(borderRadius: BorderRadius.circular(r(50)),child: Image.asset(image, fit: BoxFit.fitHeight,))),
                     SizedBox(width: w(20),),
-                    Text(title.tr, style: robotoW500(s(14), primaryTextColor),),
+                    Text(title.tr, style: robotoW500(s(14), Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack),),
                   ],
                 ),
               ),
@@ -113,9 +111,9 @@ class _MenuScreenState extends State<MenuScreen> {
       child: Row(
         children: [
           SizedBox(width: w(20),),
-          SvgPicture.asset(icon, color: primaryColor,),
+          SvgPicture.asset(icon, color:  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor,),
           SizedBox(width: w(20),),
-          Text(title.tr, style: robotoW700(s(19), primaryColor),),
+          Text(title.tr, style: robotoW700(s(19),  Get.isDarkMode? darkModePrimaryColor : lightModePrimaryColor),),
         ],
       ),
         );
@@ -142,7 +140,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: ClipRRect(borderRadius: BorderRadius.circular(r(50)),child: Image.asset(image, fit: BoxFit.fitHeight,))),
             SizedBox(width: w(20),),
             Text(
-              title.tr,style: robotoW500(s(14), primaryTextColor),
+              title.tr,style: robotoW500(s(14),  Get.isDarkMode? darkModeTextColorWhite : lightModeTextColorBlack),
             ),
           ],
         ),
