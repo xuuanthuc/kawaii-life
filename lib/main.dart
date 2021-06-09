@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wibu_life/themes/app_theme.dart';
+import 'package:wibu_life/themes/app_theme_service.dart';
 
 import 'app_papes.dart';
 import 'themes/app_theme.dart';
 import 'utils/common/logger.dart';
 import 'utils/lang/translation_service.dart';
+import 'package:get_storage/get_storage.dart';
 
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(
       LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
@@ -30,8 +33,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Logger.info('start');
     return GetMaterialApp(
-      // theme: lightThemeData,
-      // darkTheme: darkThemeData,
+      theme: lightMode,
+      darkTheme: darkMode,
+      themeMode: ThemeService().getThemeMode(),
       debugShowCheckedModeBanner: false,
       enableLog: true,
       unknownRoute: AppPages.unknownRoute,

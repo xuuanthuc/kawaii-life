@@ -45,8 +45,10 @@ class HomeNews extends StatelessWidget {
                 controller: _scrollController,
                 slivers: [
                   SliverAppBar(
+                    automaticallyImplyLeading: false,
                     bottom: PreferredSize(
                       child: AppBar(
+
                         automaticallyImplyLeading: false,
                         elevation: 0,
                         backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
@@ -70,7 +72,6 @@ class HomeNews extends StatelessWidget {
                     snap: true,
                     elevation: 0,
                     expandedHeight: h(130),
-                    //TODO:change color
                     backgroundColor: Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
                   ),
                   CategoriesNews(),

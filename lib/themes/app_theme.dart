@@ -4,12 +4,13 @@ import 'package:wibu_life/utils/common/screen_util.dart';
 import 'app_colors.dart';
 
 final ThemeData lightMode = ThemeData.light().copyWith(
+  accentColor: Colors.white.withOpacity(0.1),
 
 );
 
 
 final ThemeData darkMode = ThemeData.dark().copyWith(
-
+  accentColor: Colors.black.withOpacity(0.1),
 );
 
 final TextStyle cardTextStyle = TextStyle(

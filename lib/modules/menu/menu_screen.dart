@@ -11,6 +11,7 @@ import 'package:wibu_life/modules/wall_paper/views/wall_paper_list_type.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_icon.dart';
 import 'package:wibu_life/themes/app_theme.dart';
+import 'package:wibu_life/themes/app_theme_service.dart';
 import 'package:wibu_life/utils/common/screen_util.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
@@ -62,7 +63,8 @@ class MenuScreen extends StatelessWidget {
               ElevatedButton(child:
                 Text('Light'),
                 onPressed: () {
-                Get.isDarkMode? Get.changeTheme(lightMode) : Get.changeTheme(darkMode);
+                ThemeService().changeThemeMode();
+                // Get.isDarkMode? Get.changeTheme(lightMode) : Get.changeTheme(darkMode);
                 },
               )
             ],
