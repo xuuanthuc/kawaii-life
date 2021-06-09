@@ -24,6 +24,10 @@ abstract class LocaleKeys {
   static const LOCK_SCREEN = "lock_screen";
   static const BOTH_SCREEN = "both_screen";
 
+  //menu
+  static const LIGHT = "light_mode";
+  static const DARK = "dark_mode";
+
 
 
   //error description

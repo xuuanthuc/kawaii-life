@@ -14,14 +14,14 @@ class NavController extends GetxController{
     isActionHeart.value = false;
     isActionMenu.value = false;
   }
-  void selectWallpaper(){
+  void selectAnimeListWallpaper(){
     isActionNews.value = false;
     isActionWallpaper.value = true;
     isActionBuy.value = false;
     isActionHeart.value = false;
     isActionMenu.value = false;
   }
-  void selectBuy(){
+  void selectWallpaperCategory(){
     isActionNews.value = false;
     isActionWallpaper.value = false;
     isActionBuy.value = true;

@@ -60,13 +60,8 @@ class MenuScreen extends StatelessWidget {
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_AESTHETIC, image: icon.anime_aesthetic),
               categoryWallpaperOnMenuButton(title: LocaleKeys.ANIME_LOVE, image: icon.anime_love),
               Divider(),
-              ElevatedButton(child:
-                Text('Light'),
-                onPressed: () {
-                ThemeService().changeThemeMode();
-                // Get.isDarkMode? Get.changeTheme(lightMode) : Get.changeTheme(darkMode);
-                },
-              )
+              switchDarkLightModeButton(),
+
             ],
           ),
         ),
@@ -74,11 +69,41 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
+  Row switchDarkLightModeButton() {
+    return Row(
+              children: [
+                SizedBox(width: w(18),),
+                TextButton(child:
+                Row(
+                  children: [
+                    Text( Get.isDarkMode? LocaleKeys.LIGHT.tr : LocaleKeys.DARK.tr, style: robotoW600(s(16), Get.isDarkMode? darkModePrimaryColor: lightModePrimaryColor),),
+                  ],
+                ),
+                  onPressed: () {
+                    ThemeService().changeThemeMode();
+                    // Get.isDarkMode? Get.changeTheme(lightMode) : Get.changeTheme(darkMode);
+                  },
+                ),
+                Spacer(),
+                GestureDetector(
+                  onTap: (){
+                    ThemeService().changeThemeMode();
+                  },
+                  child: Container(
+                      width: h(50),
+                      height: h(50),
+                      child: Image.asset(Get.isDarkMode? icon.moon:  icon.sun,fit: BoxFit.fill,)),
+                ),
+                SizedBox(width: w(20),),
+              ],
+            );
+  }
+
   Widget categoryWallpaperOnMenuButton({required String title, required String image}) {
     return GestureDetector(
       onTap: () async {
         Get.toNamed(Routes.WALL_PAPER);
-        navController.selectWallpaper();
+        navController.selectAnimeListWallpaper();
         Get.to(WallpaperListType());
         await wallPaperController
             .selectTypeWallpaper(title);

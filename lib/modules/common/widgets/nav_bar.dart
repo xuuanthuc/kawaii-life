@@ -36,8 +36,8 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                Get.toNamed(Routes.WALL_PAPER);
-                navController.selectWallpaper();
+                Get.toNamed(Routes.ANIME_LIST);
+                navController.selectAnimeListWallpaper();
 
               },
               icon: navController.isActionWallpaper.value
@@ -53,17 +53,16 @@ class NavBarDesign extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {
-                navController.selectBuy();
-
-
+                Get.toNamed(Routes.WALL_PAPER);
+                navController.selectWallpaperCategory();
               },
               icon: navController.isActionBuy.value
                   ? SvgPicture.asset(
-                      icon.buy_solid,
+                      icon.folder_solid,
                       color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )
                   : SvgPicture.asset(
-                      icon.buy_icon,
+                      icon.folder,
                       color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )),
           IconButton(

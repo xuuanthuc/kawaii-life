@@ -16,4 +16,6 @@ const Map<String, String> vi_VN = {
   'both_screen': 'Đặt cả hai',
   'tin_tuc':'Tin Tức',
   'hinh_nen':'Hình Nền',
+  'light_mode': 'Chế Độ Ban Ngày',
+  'dark_mode': 'Chế Độ Ban Đêm'
 };

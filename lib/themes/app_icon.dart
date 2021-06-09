@@ -27,6 +27,9 @@ class icon{
   static const home_screen = 'assets/icons/home_screen_icon.svg';
   static const lock_screen = 'assets/icons/lock_screen_icon.svg';
   static const both_screen = 'assets/icons/both_screen_icon.svg';
+  static const folder = 'assets/icons/folder.svg';
+  static const folder_solid = 'assets/icons/folder_solid.svg';
+  
 
 
   //Images
@@ -41,6 +44,8 @@ class icon{
   static const anime_boys = 'assets/images/anime_boys.jpeg';
   static const anime_aesthetic = 'assets/images/anime_aesthetic.jpeg';
   static const anime_love = 'assets/images/anime_love.png';
+  static const moon = 'assets/images/moon_icon.png';
+  static const sun = 'assets/images/sun_icon.png';
 
   static const loading_gif = 'assets/images/loading.gif';
   static const loading_image_gif = 'assets/images/loading_image.gif';

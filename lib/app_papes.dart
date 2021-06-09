@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:wibu_life/modules/anime_list_wallpapers/views/anime_list_screen.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/home_news/views/news_detail.dart';
 import 'package:wibu_life/modules/menu/menu_screen.dart';
@@ -20,6 +21,7 @@ abstract class Routes {
   static const NEWS_DETAIL = '/news-detail';
   static const WALL_PAPER = '/wall-paper';
   static const MENU = '/menu-screen';
+  static const ANIME_LIST = '/anime-list-screen';
 }
 
 class AppPages {
@@ -51,6 +53,11 @@ class AppPages {
       name: Routes.MENU,
       page: () => MenuScreen(),
       bindings: [WallPaperBinding(), NewsBinding()],
+    ),
+    GetPage(
+      name: Routes.ANIME_LIST,
+      page: () => AnimeListScreen(),
+      bindings: [],
     ),
   ];
 }
