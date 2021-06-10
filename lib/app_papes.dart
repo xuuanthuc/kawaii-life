@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:wibu_life/modules/anime_list_wallpapers/bindings/anime_list_binding.dart';
 import 'package:wibu_life/modules/anime_list_wallpapers/views/anime_list_screen.dart';
 import 'package:wibu_life/modules/home_news/controllers/news_controller.dart';
 import 'package:wibu_life/modules/home_news/views/news_detail.dart';
@@ -52,12 +53,12 @@ class AppPages {
     GetPage(
       name: Routes.MENU,
       page: () => MenuScreen(),
-      bindings: [WallPaperBinding(), NewsBinding()],
+      bindings: [WallPaperBinding(), NewsBinding(), AnimeListBinding()],
     ),
     GetPage(
       name: Routes.ANIME_LIST,
       page: () => AnimeListScreen(),
-      bindings: [],
+      bindings: [AnimeListBinding()],
     ),
   ];
 }

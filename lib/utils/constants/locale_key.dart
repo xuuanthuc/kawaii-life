@@ -23,6 +23,41 @@ abstract class LocaleKeys {
   static const HOME_SCREEN = "home_screen";
   static const LOCK_SCREEN = "lock_screen";
   static const BOTH_SCREEN = "both_screen";
+  //anime list
+  static const ONE_PIECE = "one_piece";
+  static const DRAGON_BALL = "dragon_ball";
+  static const NARUTO = "naruto";
+  static const BOKU_NO_HERO = "boku_no_hero";
+  static const DR_STONE = "dr_stone";
+  static const DEMON_SLAYER = "demon_slayer";
+  static const BORUTO = "boruto";
+  static const FIRE_FORCE = "fire_force";
+  static const TOKYO_GHOUL = "tokyo_ghoul";
+  static const FAIRY_TAIL = "fairy_tail";
+  static const NANATSU_NO_TAIZAI = "nanatsu_no_taizai";
+  static const BLACK_CLOVER = "black_clover";
+  static const BLEACH = "bleach";
+  static const ATTACH_ON_TITAN = "attach_on_titan";
+  static const ONE_PUNCH_MAN = "one_punch_man";
+  static const KUROKO_NO_BASKET = "kuroko_no_basket";
+  static const GINTAMA = "gintama";
+  static const OVERLORD = "overlord";
+  static const SWORD_ART_ONLINE = "sword_art_online";
+  static const RE_ZERO = "re_zero";
+  static const NO_GAME_NO_LIFE = "no_game_no_life";
+  static const KONOSUBA = "konosuba";
+  static const DATE_A_LIVE = "date_a_live";
+  static const KAKEGURUI = "kakegurui";
+  static const POKEMON = "pokemon";
+  static const DURARARA = "durarara";
+  static const MONOGATARI = "monogatari";
+  static const LOG_HORIZON = "log_horizon";
+  static const FATE_STAY_NIGHT = "fate_stay_night";
+  static const HIGH_SCHOOL_DXD = "high_school_dxd";
+  static const TO_LOVE_RU = "to_love_ru";
+  static const SERAPH_OF_THE_END = "seraph_of_the_end";
+  static const ZERO_TWO = "zero_two";
+  static const KABANERI_OF_THE_IRON_FORTRESS = "Kabaneri_of_the_iron_fortress";
 
   //menu
   static const LIGHT = "light_mode";

@@ -27,8 +27,8 @@ class WallPaperController extends GetxController{
   RxBool animeLoveSelect = false.obs;
 
 
-  var animeType = <Wallpaper>[];
-  var animeGirlsType = <Wallpaper>[];
+  var animeType = <Wallpaper>[].obs;
+  var animeGirlsType = <Wallpaper>[].obs;
   var animeBoysType = <Wallpaper>[].obs;
   var animeAestheticType = <Wallpaper>[].obs;
   var animeLoveType = <Wallpaper>[].obs;
@@ -103,13 +103,13 @@ class WallPaperController extends GetxController{
 
   Future<void> selectAnimeWallpaper() async{
     isLoading.value = true;
-    animeType = await wallPaperRepository.getWallpaperAnime();
+    animeType.value = await wallPaperRepository.getWallpaperAnime();
     isLoading.value = false;
     update();
   }
   Future<void> selectAnimeGirlsWallpaper() async{
     isLoading.value = true;
-    animeGirlsType = await wallPaperRepository.getWallpaperAnimeGirls();
+    animeGirlsType.value = await wallPaperRepository.getWallpaperAnimeGirls();
     isLoading.value = false;
     update();
 

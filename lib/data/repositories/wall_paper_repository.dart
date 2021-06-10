@@ -3,8 +3,8 @@
 import 'package:wibu_life/data/url_api.dart';
 import 'package:wibu_life/models/wallpaper/wallpaper_model.dart';
 import 'package:wibu_life/modules/wall_paper/wall_paper_repository.dart';
-
 import '../request.dart';
+
 final wallpaperAnime = '$getAnimeWallpaper';
 final wallpaperAnimeGirls = '$getAnimeGirlsWallpaper';
 final wallpaperAnimeAesthetic = '$getAnimeAestheticWallpaper';
