@@ -1,5 +1,6 @@
 const Map<String, String> vi_VN = {
   'hello': 'KawaiiLife',
+  'danh_sach_anime':'Danh Sách Anime',
   "tin_tuc_anime": "Tin Tức Anime",
   "tin_tuc_manga": "Tin Tức Manga",
   'cosplay': 'Cosplay',

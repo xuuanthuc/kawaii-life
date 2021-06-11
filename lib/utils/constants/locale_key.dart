@@ -24,6 +24,7 @@ abstract class LocaleKeys {
   static const LOCK_SCREEN = "lock_screen";
   static const BOTH_SCREEN = "both_screen";
   //anime list
+  static const ANIMELIST = "danh_sach_anime";
   static const ONE_PIECE = "one_piece";
   static const DRAGON_BALL = "dragon_ball";
   static const NARUTO = "naruto";

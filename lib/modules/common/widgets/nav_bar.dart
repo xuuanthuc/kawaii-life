@@ -14,7 +14,7 @@ class NavBarDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
               splashColor: Colors.transparent,
@@ -65,24 +65,24 @@ class NavBarDesign extends StatelessWidget {
                       icon.folder,
                       color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
                     )),
-          IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onPressed: () {
-                // Get.offAllNamed(Routes.WALL_PAPER);
-                navController.selectHeart();
-
-
-              },
-              icon: navController.isActionHeart.value
-                  ? SvgPicture.asset(
-                      icon.heart_solid,
-                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
-                    )
-                  : SvgPicture.asset(
-                      icon.heart_icon,
-                      color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
-                    )),
+          // IconButton(
+          //     splashColor: Colors.transparent,
+          //     highlightColor: Colors.transparent,
+          //     onPressed: () {
+          //       // Get.offAllNamed(Routes.WALL_PAPER);
+          //       navController.selectHeart();
+          //
+          //
+          //     },
+          //     icon: navController.isActionHeart.value
+          //         ? SvgPicture.asset(
+          //             icon.heart_solid,
+          //             color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
+          //           )
+          //         : SvgPicture.asset(
+          //             icon.heart_icon,
+          //             color:Get.isDarkMode? darkModePrimaryColor:  lightModePrimaryColor,
+          //           )),
           IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
