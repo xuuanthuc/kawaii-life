@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:image_downloader/image_downloader.dart';
 import 'package:share/share.dart';
 import 'package:wibu_life/modules/anime_list_wallpapers/controllers/anime_list_controller.dart';
-import 'package:wibu_life/modules/wall_paper/controllers/wall_paper_controller.dart';
 import 'package:wibu_life/themes/app_colors.dart';
 import 'package:wibu_life/themes/app_icon.dart';
 import 'package:wibu_life/themes/app_theme.dart';
@@ -15,22 +14,22 @@ import 'package:wibu_life/utils/common/screen_util.dart';
 import 'package:wibu_life/utils/common/wallpaper_manager.dart';
 import 'package:wibu_life/utils/constants/locale_key.dart';
 
-class PreviewImageScreen extends StatelessWidget {
+class PreviewAnimeListImageScreen extends StatelessWidget {
   String image;
 
-  PreviewImageScreen({required this.image});
+  PreviewAnimeListImageScreen({required this.image});
 
-  final WallPaperController wallPaperController = Get.find();
+  final AnimeListController animeListController = Get.find();
 
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<WallPaperController>(
-      init: wallPaperController,
+    return GetBuilder<AnimeListController>(
+      init: animeListController,
       builder: (index) => Container(
         decoration: BoxDecoration(
-          color:Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
-                image: DecorationImage(
+            color:Get.isDarkMode? darkModeBackgroundColor : lightModeBackgroundColor,
+            image: DecorationImage(
                 image: NetworkImage(image), fit: BoxFit.fitHeight)),
         child: Stack(
           alignment: AlignmentDirectional.bottomCenter,
@@ -54,40 +53,40 @@ class PreviewImageScreen extends StatelessWidget {
                   IconButtomDesign(
                     onTap: () {
                       Get.bottomSheet(
-                        Padding(
-                          padding: EdgeInsets.only(bottom: h(40), left: w(8),right: w(8)),
-                          child: ClipRect(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(
-                              sigmaX: 5.0,
-                              sigmaY: 5.0,
-                            ),
-                              child: Container(
-                                height: h(120),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(r(10)),
-                                  color: Colors.white.withOpacity(0.9),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: h(40), left: w(8),right: w(8)),
+                            child: ClipRect(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 5.0,
+                                  sigmaY: 5.0,
                                 ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Column(
-                                      // mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        buttomSetWallpaperDesign(imageUrl: image,icon: icon.home_screen, type: LocaleKeys.HOME_SCREEN),
-                                        buttomSetWallpaperDesign(imageUrl: image,icon: icon.lock_screen,  type: LocaleKeys.LOCK_SCREEN),
-                                        buttomSetWallpaperDesign(imageUrl: image, icon: icon.both_screen, type: LocaleKeys.BOTH_SCREEN),
-                                      ],
-                                    ),
-                                  ],
+                                child: Container(
+                                  height: h(120),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(r(10)),
+                                    color: Colors.white.withOpacity(0.9),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        // mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          buttomSetWallpaperDesign(imageUrl: image,icon: icon.home_screen, type: LocaleKeys.HOME_SCREEN),
+                                          buttomSetWallpaperDesign(imageUrl: image,icon: icon.lock_screen,  type: LocaleKeys.LOCK_SCREEN),
+                                          buttomSetWallpaperDesign(imageUrl: image, icon: icon.both_screen, type: LocaleKeys.BOTH_SCREEN),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        barrierColor: Colors.white.withOpacity(0)
+                          barrierColor: Colors.white.withOpacity(0)
                       );
 
                     },
@@ -99,7 +98,7 @@ class PreviewImageScreen extends StatelessWidget {
                   SizedBox(width: w(30),),
                   IconButtomDesign(
                     onTap: () async {
-                      wallPaperController.downloadImage(image);
+                      animeListController.downloadImage(image);
                     },
                     height: 60,
                     width: 60,
@@ -109,7 +108,7 @@ class PreviewImageScreen extends StatelessWidget {
                   SizedBox(width: w(30),),
                   IconButtomDesign(
                     onTap: () {
-                      wallPaperController.shareImage(image);
+                      animeListController.shareImage(image);
                     },
                     height: 60,
                     width: 60,
@@ -129,16 +128,16 @@ class PreviewImageScreen extends StatelessWidget {
     return Flexible(
       child: TextButton(
         onPressed: ()async{
-        await wallPaperController.setWallpaper(imageUrl,type);
-        Get.back();
+          await animeListController.setWallpaper(imageUrl,type);
+          Get.back();
         }, child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(icon, width: h(25), height: h(25),color: lightModeTextColorBlack,),
-            SizedBox(width: w(10),),
-            Text(type.tr, style: robotoW400(s(20), lightModeTextColorBlack),),
-          ],
-        ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(icon, width: h(25), height: h(25),color: lightModeTextColorBlack,),
+          SizedBox(width: w(10),),
+          Text(type.tr, style: robotoW400(s(20), lightModeTextColorBlack),),
+        ],
+      ),
       ),
     );
   }

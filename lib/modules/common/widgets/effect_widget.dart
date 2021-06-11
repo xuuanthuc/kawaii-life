@@ -114,3 +114,39 @@ class EffectAnimationWallpaperListDesign extends StatelessWidget {
     );
   }
 }
+class EffectAnimationAnimeListDesign extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: w(30), vertical: h(15)),
+      child: GridView.builder(
+        itemBuilder: (BuildContext context, int index) { return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(r(10)),
+            color: Colors.grey.shade100,
+          ),
+          height: h(210),
+          width: w(110),
+          child: Shimmer(
+            period: Duration(milliseconds: 600),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(r(10)),
+                color: Colors.grey.shade100,
+              ),
+            ),
+            direction: ShimmerDirection.ltr,
+            gradient: shimmerGradient,
+          ),
+        ); },
+        itemCount: 15, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 9 / 16,
+        crossAxisCount: 3,
+        mainAxisSpacing: w(12),
+        crossAxisSpacing: w(12),
+
+      ),
+      ),
+    );
+  }
+}

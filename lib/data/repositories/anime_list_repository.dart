@@ -288,6 +288,7 @@ class AnimeListRepository implements IAnimeListRepository{
     request.requestApi(method: MethodType.GET, url: wallpaperToLoveRu);
     var converRes = (res as dynamic);
     List<dynamic> data = converRes;
+    print(data);
     return data.map((job) => new Wallpaper.fromJson(job)).toList();
   }
   @override
